@@ -1,8 +1,19 @@
 import { configure } from '@storybook/react';
+import { setOptions } from '@storybook/addon-options';
 
+import '../src/components/global/Layout/Layout.scss';
+
+setOptions({
+  name: 'Developers Blog',
+  url: 'https://github.com/qmachard/developers-blog',
+  hierarchyRootSeparator: /\|/
+});
+
+
+// automatically import all files ending in *.stories.ts
+const req = require.context('../stories', true, /.stories.js$/);
 function loadStories() {
-  require('../stories/index.jsx');
-  // You can require as many stories as you need.
+  req.keys().forEach(filename => req(filename));
 }
 
 configure(loadStories, module);
