@@ -9,11 +9,11 @@ import './Card.scss';
  */
 class Card extends React.PureComponent {
   render() {
-    const {padding, children} = this.props;
+    const {padding, className, children} = this.props;
 
     const componentClassNames = classNames('card', {
       'card--padding': padding,
-    });
+    }, className);
 
     return (
       <article className={componentClassNames}>
@@ -25,6 +25,7 @@ class Card extends React.PureComponent {
 
 Card.propTypes = {
   padding: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 Card.defaultProps = {
