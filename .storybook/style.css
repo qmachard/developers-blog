@@ -1,0 +1,32 @@
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.example {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #F0F0F0;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.example .icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.example_view {
+  display: block;
+  padding: 10px;
+}
+
+.example_label {
+  display: block;
+  text-align: center;
+  padding: 5px;
+  background-color: #F0F0F0;
+  width: 100%;
+}
