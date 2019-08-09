@@ -5,18 +5,22 @@
   box-shadow:
           0 3px 3px rgba(0, 0, 0, 0.2), /** Simulate Direct Light - Color is a darkened shade of blue **/
           0 3px 20px rgba(0, 0, 0, 0.3)  /** Simulate Ambient Light - Color is a darkened shade of blue **/;
-  transition: 0.4s ease-in-out;
-  transform: scale(1);
   overflow: hidden;
 
   &--padding {
     padding: 20px;
   }
 
-  &:hover {
-    transform: scale(1.03);
-    box-shadow:
-            0 3px 10px rgba(0, 0, 0, 0.2), /** Simulate Direct Light - Color is a darkened shade of blue **/
-            0 3px 30px rgba(0, 0, 0, 0.3)  /** Simulate Ambient Light - Color is a darkened shade of blue **/;
+  &--link {
+    transition: 0.4s ease-in-out;
+    transform: scale(1);
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.03);
+      box-shadow:
+              0 3px 10px rgba(0, 0, 0, 0.2), /** Simulate Direct Light - Color is a darkened shade of blue **/
+              0 10px 30px rgba(0, 0, 0, 0.3)  /** Simulate Ambient Light - Color is a darkened shade of blue **/;
+    }
   }
 }
