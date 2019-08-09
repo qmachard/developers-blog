@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import CustomPropTypes from '../../../utils/CustomPropTypes';
 
 import icons from '../../../../static/icons.svg';
 import './Icon.scss';
@@ -28,7 +27,6 @@ class Icon extends React.PureComponent {
 Icon.propTypes = {
   icon: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  className: CustomPropTypes.className,
 };
 
 Icon.defaultProps = {};

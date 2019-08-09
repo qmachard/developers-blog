@@ -1,0 +1,15 @@
+.tag {
+  display: flex;
+  align-items: center;
+  font-weight: var(--font-bold);
+
+  .icon {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+  }
+
+  & + .tag {
+    margin-left: 20px;
+  }
+}

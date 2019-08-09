@@ -4,6 +4,9 @@
 :root {
   --font-family: #{$font-family};
   --font-light: #{$font-light};
-  --font-bold: #{$font-normal};
-  --font-normal: #{$font-bold};
+  --font-normal: #{$font-normal};
+  --font-bold: #{$font-bold};
+  --font-size-normal: 14px;
+  --color-background: #FFFFFF;
+  --color-text: #0A0A0A;
 }
