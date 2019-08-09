@@ -1,0 +1,6 @@
+@import 'variables';
+@import 'mixins';
+
+@include font-face('Poppins', 'poppins-light-webfont', $font-light, normal, true);
+@include font-face('Poppins', 'poppins-regular-webfont', $font-normal, normal, true);
+@include font-face('Poppins', 'poppins-bold-webfont', $font-bold, normal, true);
