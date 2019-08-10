@@ -14,12 +14,14 @@ import './ProjectCard.scss'
  */
 class ProjectCard extends React.PureComponent {
   render() {
-    const {title, description, language, forks, stars} = this.props;
+    const {title, description, link, language, forks, stars} = this.props;
 
     return (
-      <Card className="project-card" link>
-        <h1 className="project-card_title"><a href="#" className="a-block">{title}</a></h1>
-        <p className="project-card_description">{description}</p>
+      <Card className="project-card" link={link}>
+        <h1 className="project-card_title card_title">
+          {link ? <a href={link} className="a-block">{title}</a> : title}
+        </h1>
+        <p className="project-card_description card_description">{description}</p>
 
         <div className="project-card_tags">
           <Tag icon={<Icon icon="code" title="Language"/>}>{language}</Tag>
@@ -35,8 +37,8 @@ ProjectCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   language: PropTypes.string.isRequired,
-  forks: PropTypes.string,
-  stars: PropTypes.string,
+  forks: PropTypes.number,
+  stars: PropTypes.number,
 };
 
 ProjectCard.defaultProps = {

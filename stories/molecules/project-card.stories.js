@@ -1,7 +1,7 @@
 import React from 'react';
 import {storiesOf} from '@storybook/react';
 
-import ProjectCard from '../../src/components/molecules/ProjectCard/ProjectCard';
+import ProjectCard from '../../src/components/molecules/ProjectCard';
 
 const stories = storiesOf('Molecules|ProjectCard', module);
 
@@ -12,6 +12,17 @@ stories.add('default', () => (
     language="Javascript"
     forks={7689}
     stars={1234}
+  />
+));
+
+stories.add('with link', () => (
+  <ProjectCard
+    title="developers-blog"
+    description="Every developer needs a simple blog"
+    language="Javascript"
+    forks={7689}
+    stars={1234}
+    link="http://google.fr"
   />
 ));
 
