@@ -1,7 +1,7 @@
 .tag {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  font-weight: var(--font-bold);
+  font-weight: var(--font-semibold);
 
   .icon {
     width: 15px;

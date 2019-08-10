@@ -1,9 +1,16 @@
-.project-card {}
+.project-card {
+  display: block;
+  position: relative;
+}
 
 .project-card_title {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: var(--font-semibold);
   margin: 0 0 20px;
   word-wrap: break-word;
   color: inherit;
+}
+
+.project-card_tags {
+  margin-top: 20px;
 }
