@@ -1,0 +1,36 @@
+.profile  {}
+
+.profile_image {
+  display: block;
+  width: 180px;
+  height: 180px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.profile_name {
+  font-size: 24px;
+  font-weight: var(--font-semibold);
+  margin-top: 30px;
+}
+
+.profile_username {
+  font-size: 18px;
+  margin-top: 8px;
+}
+
+.profile_profession {
+  margin-top: 30px;
+  font-size: 26px;
+  font-weight: var(--font-semibold);
+}
+
+.profile_tags {
+  margin-top: 30px;
+}
+
+.profile_tag {
+  & + .profile_tag {
+    margin-top: 10px;
+  }
+}
