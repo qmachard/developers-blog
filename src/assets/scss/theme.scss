@@ -3,10 +3,13 @@
 
 :root {
   --font-family: #{$font-family};
+  --font-family-title: #{$font-family-title};
   --font-normal: #{$font-normal};
   --font-semibold: #{$font-semibold};
   --font-bold: #{$font-bold};
   --font-size-normal: 14px;
-  --color-background: #FFFFFF;
+  --font-size-title-1: 50px;
+  --color-background: #fafafa;
   --color-text: #0A0A0A;
+  --color-bg-card: #FFFFFF;
 }

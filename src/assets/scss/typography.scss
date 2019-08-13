@@ -1,0 +1,8 @@
+@import 'variables';
+
+.title-1 {
+  font-family: var(--font-family-title);
+  font-size: var(--font-size-title-1);
+  font-weight: var(--font-bold);
+  margin-bottom: 50px;
+}

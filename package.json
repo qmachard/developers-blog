@@ -16,6 +16,7 @@
   "dependencies": {
     "autoprefixer": "^8.2.0",
     "classnames": "^2.2.6",
+    "flexboxgrid-sass": "^8.0.5",
     "gatsby": "^2.13.28",
     "gatsby-plugin-force-file-loader": "^0.1.0",
     "gatsby-plugin-postcss-sass": "^1.0.22",
