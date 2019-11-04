@@ -1,0 +1,31 @@
+.post-card {
+  display: block;
+  position: relative;
+  max-width: 600px;
+}
+
+.post-card_inner {
+  padding: 50px 30px;
+}
+
+.post-card_description {
+  .post-card_title + & {
+    margin-top: 20px;
+  }
+}
+
+.post-card_image {
+  position: relative;
+  background: var(--color-background) no-repeat 50% 50%;
+  background-size: cover;
+  padding-bottom: 50%;
+
+  .icon {
+    position: absolute;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    width: 60px;
+    height: 60px;
+    color: var(--color-smooth);
+  }
+}

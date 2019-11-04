@@ -10,21 +10,23 @@ import './Icon.scss';
  */
 class Icon extends React.PureComponent {
   render() {
-    const {icon, className} = this.props;
+    const {icon, title, className} = this.props;
 
     const componentClassName = classNames('icon', `icon-${icon}`, className);
 
     return (
-      <svg className={componentClassName}>
-        <use xlinkHref={`${icons}#${icon}`} />
-      </svg>
+      <i className={componentClassName} title={title}>
+        <svg className="icon_svg">
+          <use xlinkHref={`${icons}#${icon}`} />
+        </svg>
+      </i>
     );
   }
 }
 
 Icon.propTypes = {
   icon: PropTypes.string.isRequired,
-  className: PropTypes.string,
+  title: PropTypes.string.isRequired,
 };
 
 Icon.defaultProps = {};

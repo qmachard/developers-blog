@@ -5,10 +5,7 @@ import Icon from '../../src/components/atoms/Icon';
 
 import icons from '../../static/icons.svg';
 
-const stories = storiesOf('Atoms|Icons', module);
-
-stories.add('default', () => <Icon icon="code" />);
-
+const stories = storiesOf('Atoms|Icon', module);
 
 // --- List all icons from sprite
 
@@ -21,11 +18,11 @@ xmlhttp.onload = function() {
   const iconsList = Array.prototype.slice.call(svg.getElementsByTagName('symbol'));
 
   stories.add('list', () => (
-    <ul style={{display: 'flex', flexWrap: 'wrap'}}>
+    <ul className="examples">
       {iconsList.map(item => (
-        <li style={{display: 'flex', alignItems: 'center', flexDirection: 'column', border: '1px solid #F0F0F0', marginLeft: '10px', marginTop: '10px'}}>
-          <span style={{display: 'block', padding: '10px'}}><Icon icon={item.id}/></span>
-          <span style={{display: 'block', textAlign: 'center', padding: '5px', backgroundColor: '#F0F0F0', width: '100%'}}>{item.id}</span>
+        <li key={item.id} className="example">
+          <span className="example_view"><Icon icon={item.id} title={`Icone ${item.id}`} /></span>
+          <span className="example_label">{item.id}</span>
         </li>))}
     </ul>
   ));
