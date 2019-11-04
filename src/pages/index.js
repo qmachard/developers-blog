@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/global/Layout";
-import Card from "../components/molecules/Card";
+import Card from "../components/atoms/Card";
 
 class IndexPage extends React.Component {
   initialState = {};

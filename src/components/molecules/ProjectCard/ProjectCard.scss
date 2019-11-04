@@ -1,0 +1,15 @@
+.project-card {
+  display: block;
+  position: relative;
+  max-width: 600px;
+}
+
+.project-card_tags {
+  margin-top: 20px;
+}
+
+.project-card_description {
+  .project-card_title + & {
+    margin-top: 20px;
+  }
+}

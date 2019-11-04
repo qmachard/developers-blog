@@ -1,6 +1,7 @@
 import { configure } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
 
+import './style.css';
 import '../src/components/global/Layout/Layout.scss';
 
 setOptions({

@@ -1,20 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './Tag.scss';
+
 /**
  * Tag Component
  */
 class Tag extends React.PureComponent {
   render() {
+    const {icon, children} = this.props;
+
     return (
-      <span></span>
+      <span className="tag">
+        {icon}
+        {children}
+      </span>
     );
   }
 }
 
 Tag.propTypes = {
-  icon: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  icon: PropTypes.element,
 };
 
 Tag.defaultProps = {};
