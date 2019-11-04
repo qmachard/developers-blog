@@ -1,7 +1,7 @@
 import React from 'react';
 import {storiesOf} from '@storybook/react';
 
-import ProjectCard from '../../src/components/molecules/ProjectCard';
+import ProjectCard from './ProjectCard';
 
 const stories = storiesOf('Molecules|ProjectCard', module);
 
