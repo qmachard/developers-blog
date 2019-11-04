@@ -7,22 +7,18 @@ import './Card.scss';
 /**
  * Card Component
  */
-class Card extends React.PureComponent {
-  render() {
-    const {padding, link, className, children} = this.props;
+const Card = ({padding, link, className, children}) => {
+  const componentClassNames = classNames('card', {
+    'card--padding': padding,
+    'card--link': link,
+  }, className);
 
-    const componentClassNames = classNames('card', {
-      'card--padding': padding,
-      'card--link': link,
-    }, className);
-
-    return (
-      <article className={componentClassNames}>
-        {children}
-      </article>
-    );
-  }
-}
+  return (
+    <article className={componentClassNames}>
+      {children}
+    </article>
+  );
+};
 
 Card.propTypes = {
   padding: PropTypes.bool,

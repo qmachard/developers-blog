@@ -1,8 +1,7 @@
 import React from 'react';
 import {storiesOf} from '@storybook/react';
 
-import Profile from "../../src/components/molecules/Profile";
-import PostCard from "../../src/components/molecules/PostCard";
+import Profile from "./Profile";
 
 const stories = storiesOf('Molecules|Profile', module);
 

@@ -1,23 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 
 import './Tag.scss';
 
 /**
  * Tag Component
  */
-class Tag extends React.PureComponent {
-  render() {
-    const {icon, children} = this.props;
-
-    return (
-      <span className="tag">
-        {icon}
-        {children}
-      </span>
-    );
-  }
-}
+const Tag = ({icon, children}) => (
+  <span className="tag">
+    {icon}
+    {children}
+  </span>
+);
 
 Tag.propTypes = {
   icon: PropTypes.element,

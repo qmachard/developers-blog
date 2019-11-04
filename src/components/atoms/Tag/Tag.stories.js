@@ -1,8 +1,8 @@
 import React from 'react';
 import {storiesOf} from '@storybook/react';
 
-import Tag from '../../src/components/atoms/Tag/Tag';
-import Icon from '../../src/components/atoms/Icon';
+import Tag from './Tag';
+import Icon from '../Icon';
 
 const stories = storiesOf('Atoms|Tag', module);
 
