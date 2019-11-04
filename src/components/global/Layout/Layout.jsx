@@ -7,26 +7,20 @@ import {Helmet} from 'react-helmet';
 /**
  * Layout Component
  */
-class Layout extends React.PureComponent {
-  render() {
-    const {title, description, children} = this.props;
+const Layout = ({title, description, children}) => (
+  <div className="layout">
+    <Helmet>
+      <html lang="fr" />
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta property="og:site_name" content={title} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={title} />
+    </Helmet>
 
-    return (
-      <div className="layout">
-        <Helmet>
-          <html lang="fr" />
-          <title>{title}</title>
-          <meta name="description" content={description} />
-          <meta property="og:site_name" content={title} />
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:title" content={title} />
-        </Helmet>
-
-        {children}
-      </div>
-    );
-  }
-}
+    {children}
+  </div>
+);
 
 Layout.propTypes = {
   title: PropTypes.string.isRequired,
