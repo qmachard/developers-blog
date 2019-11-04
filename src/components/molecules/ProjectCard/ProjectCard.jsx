@@ -12,26 +12,20 @@ import './ProjectCard.scss'
 /**
  * ProjectCard Component
  */
-class ProjectCard extends React.PureComponent {
-  render() {
-    const {title, description, link, language, forks, stars} = this.props;
+const ProjectCard = ({title, description, link, language, forks, stars}) => (
+  <Card className="project-card" link={link}>
+    <h1 className="project-card_title card_title">
+      {link ? <a href={link} className="a-block">{title}</a> : title}
+    </h1>
+    <p className="project-card_description card_description">{description}</p>
 
-    return (
-      <Card className="project-card" link={link}>
-        <h1 className="project-card_title card_title">
-          {link ? <a href={link} className="a-block">{title}</a> : title}
-        </h1>
-        <p className="project-card_description card_description">{description}</p>
-
-        <div className="project-card_tags">
-          <Tag icon={<Icon icon="code" title="Language"/>}>{language}</Tag>
-          {0 !== forks && <Tag icon={<Icon icon="fork" title="Forks"/>}>{formatNumber(forks)}</Tag>}
-          {0 !== stars && <Tag icon={<Icon icon="star" title="Stars"/>}>{formatNumber(stars)}</Tag>}
-        </div>
-      </Card>
-    );
-  }
-}
+    <div className="project-card_tags">
+      <Tag icon={<Icon icon="code" title="Language"/>}>{language}</Tag>
+      {0 !== forks && <Tag icon={<Icon icon="fork" title="Forks"/>}>{formatNumber(forks)}</Tag>}
+      {0 !== stars && <Tag icon={<Icon icon="star" title="Stars"/>}>{formatNumber(stars)}</Tag>}
+    </div>
+  </Card>
+);
 
 ProjectCard.propTypes = {
   title: PropTypes.string.isRequired,

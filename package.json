@@ -32,7 +32,7 @@
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@storybook/addon-options": "^5.1.9",
-    "@storybook/react": "^5.1.9",
+    "@storybook/react": "^5.2.5",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.1.0",
     "prettier": "^1.18.2",
