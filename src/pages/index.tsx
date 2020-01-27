@@ -1,6 +1,8 @@
-import React from "react";
+import * as React from "react";
+
 import Layout from "../components/global/Layout";
-import Card from "../components/atoms/Card";
+
+import {Card} from "components/atoms/Card";
 
 const IndexPage = () => {
   const image = {
@@ -10,7 +12,7 @@ const IndexPage = () => {
 
   return (
     <Layout title="Developers Blog">
-      <Card title="Lorem ipsum" image={image} />
+      <Card>Lorem ipsum</Card>
     </Layout>
   );
 };

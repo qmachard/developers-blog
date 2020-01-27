@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Icon from './Icon';
+import {Icon} from './Icon';
 
-import icons from '../../../../static/icons.svg';
+const icons = require('../../../../static/icons.svg') as string;
 
 const stories = storiesOf('Atoms|Icon', module);
 

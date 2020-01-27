@@ -5,7 +5,6 @@ require("imports-loader");
 const path = require("path");
 
 module.exports = ({config}) => {
-
   config.module.rules.push({
     test: /\.s[ac]ss$/,
     loaders: [
@@ -31,6 +30,11 @@ module.exports = ({config}) => {
   });
 
   config.resolve.extensions.push('.ts', '.tsx');
+
+  config.resolve.modules = [
+    ...(config.resolve.modules || []),
+    path.resolve(__dirname, "../src"),
+  ];
 
   return config;
 };

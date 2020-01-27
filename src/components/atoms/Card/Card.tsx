@@ -1,13 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import classNames from 'classnames';
 
 import './Card.scss';
 
+type CardProps = {
+  link?: boolean,
+  padding?: boolean,
+  className?: string,
+};
+
 /**
  * Card Component
  */
-const Card = ({padding, link, className, children}) => {
+export const Card: React.FC<CardProps> = ({padding, link, className, children}) => {
   const componentClassNames = classNames('card', {
     'card--padding': padding,
     'card--link': link,
@@ -20,15 +25,7 @@ const Card = ({padding, link, className, children}) => {
   );
 };
 
-Card.propTypes = {
-  padding: PropTypes.bool,
-  link: PropTypes.bool,
-  className: PropTypes.string,
-};
-
 Card.defaultProps = {
   padding: true,
   link: false,
 };
-
-export default Card;

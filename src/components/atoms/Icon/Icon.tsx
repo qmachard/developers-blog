@@ -1,14 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import classNames from 'classnames';
 
-import icons from '../../../../static/icons.svg';
+const icons = require('../../../../static/icons.svg') as string;
+
 import './Icon.scss';
+
+type IconProps = {
+  icon: string,
+  title: string,
+  className?: string,
+}
 
 /**
  * Icon Component
  */
-const Icon = ({icon, title, className}) => {
+export const Icon: React.FC<IconProps> = ({icon, title, className}) => {
   const componentClassName = classNames('icon', `icon-${icon}`, className);
 
   return (
@@ -18,13 +24,4 @@ const Icon = ({icon, title, className}) => {
       </svg>
     </i>
   );
-}
-
-Icon.propTypes = {
-  icon: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
 };
-
-Icon.defaultProps = {};
-
-export default Icon;

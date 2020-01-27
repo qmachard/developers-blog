@@ -1,7 +1,7 @@
 import React from 'react';
 import {storiesOf} from '@storybook/react';
 
-import ProjectCard from './ProjectCard';
+import { ProjectCard } from './ProjectCard';
 
 const stories = storiesOf('Molecules|ProjectCard', module);
 
@@ -51,4 +51,3 @@ stories.add('nothing 😢', () => (
     language="Javascript"
   />
 ));
-

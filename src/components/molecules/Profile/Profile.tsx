@@ -1,15 +1,23 @@
-import React from 'react';
-import * as PropTypes from 'prop-types';
+import * as React from 'react';
 
-import Tag from '../../atoms/Tag';
-import Icon from '../../atoms/Icon';
+import {Tag} from 'components/atoms/Tag';
+import {Icon} from 'components/atoms/Icon';
 
 import './Profile.scss'
 
+type ProfileProps = {
+  image: string,
+  name: string,
+  username: string,
+  profession?: string,
+  website?: string,
+  location?: string,
+}
+
 /**
- * ProjectCard Component
+ * Profile Component
  */
-const Profile = ({image, name, username, profession, website, location}) => (
+export const Profile: React.FC<ProfileProps> = ({image, name, username, profession, website, location}) => (
   <section className="profile">
     <img className="profile_image" src={image} alt=""/>
     <h1 className="profile_name">{name}</h1>
@@ -32,16 +40,3 @@ const Profile = ({image, name, username, profession, website, location}) => (
     )}
   </section>
 );
-
-Profile.propTypes = {
-  image: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired,
-  profession: PropTypes.string,
-  website: PropTypes.string,
-  location: PropTypes.string,
-};
-
-Profile.defaultProps = {};
-
-export default Profile;

@@ -1,9 +1,10 @@
 import React from 'react';
 import {storiesOf} from '@storybook/react';
 
-import CardsList from "./CardsList";
-import ProjectCard from "../../molecules/ProjectCard";
-import PostCard from "../../molecules/PostCard";
+import {ProjectCard} from "components/molecules/ProjectCard";
+import {PostCard} from "components/molecules/PostCard";
+
+import {CardsList} from "./CardsList";
 
 const stories = storiesOf('Organisms|CardsList', module);
 

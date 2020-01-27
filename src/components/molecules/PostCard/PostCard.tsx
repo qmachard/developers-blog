@@ -1,17 +1,23 @@
-import React from 'react';
-import * as PropTypes from 'prop-types';
+import * as React from 'react';
 
-import Card from '../../atoms/Card';
+import { Card } from 'components/atoms/Card';
+import { Icon } from 'components/atoms/Icon';
 
 import './PostCard.scss'
-import Icon from '../../atoms/Icon';
+
+type PostCardProps = {
+  title: string,
+  description?: string,
+  image?: string,
+  link?: string,
+}
 
 /**
  * PostCard Component
  */
-const PostCard = ({title, description, image, link}) => (
+export const PostCard: React.FC<PostCardProps> = ({title, description, image, link}) => (
   <Card className="post-card" link={!!link} padding={false}>
-    <div className="post-card_image" style={{ backgroundImage: image ? `url(${image})` : null }}>
+    <div className="post-card_image" style={{ backgroundImage: image ? `url(${image})` : undefined }}>
       {!image ? <Icon title="article" icon="newspaper"/> : null}
     </div>
     <div className="post-card_inner">
@@ -22,13 +28,3 @@ const PostCard = ({title, description, image, link}) => (
     </div>
   </Card>
 );
-
-PostCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  image: PropTypes.string,
-};
-
-PostCard.defaultProps = {};
-
-export default PostCard;
