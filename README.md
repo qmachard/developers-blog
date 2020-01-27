@@ -22,9 +22,9 @@
 
 ## Table of contents
 
-- 🚀 [Quick Start](#quick-start)
-- 🎨 [Personalize](#personalize)
-- 💫 [Deploy](#deploy)
+- 🚀 [Quick Start](#-quick-start)
+- 🎨 [Personalize](#-personalize)
+- 💫 [Deploy](#-deploy)
 
 
 ## 🚀 Quick Start
