@@ -13,10 +13,6 @@
 </p>
 
 <p align="center">
-   <a href="https://circleci.com/gh/qmachard/developers-blog"><img src="https://circleci.com/gh/qmachard/developers-blog.svg?style=svg" /></a>
-</p>
-
-<p align="center">
   <a href="https://circleci.com/gh/qmachard/developers-blog">
     <img src="https://circleci.com/gh/qmachard/developers-blog.svg?style=shield" alt="Build Status on CircleCI" />
   </a>
