@@ -8,9 +8,13 @@
   Developer's Blog
 </h1>
 
-Every developer needs a simple blog
+<p align="center">
+  Every developer needs a simple blog
+</p>
 
-[![qmachard](https://circleci.com/gh/qmachard/developers-blog.svg?style=svg)](https://circleci.com/gh/qmachard/developers-blog)
+<p align="center">
+   <a href="https://circleci.com/gh/qmachard/developers-blog"><img src="https://circleci.com/gh/qmachard/developers-blog.svg?style=svg" /></a>
+</p>
 
 ## 🚀 Quick start
 
