@@ -6,9 +6,8 @@
 
 module.exports = {
   plugins: [
-    {
-      resolve: `gatsby-plugin-sass`,
-    },
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-force-file-loader`,
       options: {
@@ -17,6 +16,12 @@ module.exports = {
           'images', /* Matches Gatsby default rules for images */
           'media', /* Matches Gatsby default rules for media (video/audio) */
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-resolve-src',
+      options: {
+        addSassLoader: false,
       },
     },
   ],

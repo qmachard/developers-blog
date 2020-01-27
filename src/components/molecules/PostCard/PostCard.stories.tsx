@@ -1,7 +1,7 @@
-import React from 'react';
-import {storiesOf} from '@storybook/react';
+import * as React from 'react';
+import { storiesOf } from '@storybook/react';
 
-import PostCard from "./PostCard";
+import { PostCard } from './PostCard';
 
 const stories = storiesOf('Molecules|PostCard', module);
 
@@ -23,15 +23,9 @@ stories.add('with link', () => (
 ));
 
 stories.add('without image', () => (
-  <PostCard
-    title="My awesome post"
-    description="Every developer needs a simple blog"
-  />
+  <PostCard title="My awesome post" description="Every developer needs a simple blog" />
 ));
 
 stories.add('without description', () => (
-  <PostCard
-    title="My awesome post"
-    image="https://images.unsplash.com/photo-1553748024-d1b27fb3f960?w=1450"
-  />
+  <PostCard title="My awesome post" image="https://images.unsplash.com/photo-1553748024-d1b27fb3f960?w=1450" />
 ));

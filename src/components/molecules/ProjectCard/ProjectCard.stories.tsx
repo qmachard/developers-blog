@@ -1,7 +1,7 @@
 import React from 'react';
-import {storiesOf} from '@storybook/react';
+import { storiesOf } from '@storybook/react';
 
-import ProjectCard from './ProjectCard';
+import { ProjectCard } from './ProjectCard';
 
 const stories = storiesOf('Molecules|ProjectCard', module);
 
@@ -45,10 +45,5 @@ stories.add('no stars 😢', () => (
 ));
 
 stories.add('nothing 😢', () => (
-  <ProjectCard
-    title="developers-blog"
-    description="Every developer needs a simple blog"
-    language="Javascript"
-  />
+  <ProjectCard title="developers-blog" description="Every developer needs a simple blog" language="Javascript" />
 ));
-
