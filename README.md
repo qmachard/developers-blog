@@ -16,7 +16,22 @@
    <a href="https://circleci.com/gh/qmachard/developers-blog"><img src="https://circleci.com/gh/qmachard/developers-blog.svg?style=svg" /></a>
 </p>
 
-## 🚀 Quick start
+<p align="center">
+  <a href="https://circleci.com/gh/qmachard/developers-blog">
+    <img src="https://circleci.com/gh/qmachard/developers-blog.svg?style=shield" alt="Build Status on CircleCI" />
+  </a>
+  <a href="https://github.com/storybookjs/storybook/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/storybookjs/storybook.svg" alt="License" />
+  </a>
+
+## Table of contents
+
+- 🚀 [Quick Start](#quick-start)
+- 🎨 [Personalize](#personalize)
+- 💫 [Deploy](#deploy)
+
+
+## 🚀 Quick Start
 
 1. Fork repository and clone project
 
