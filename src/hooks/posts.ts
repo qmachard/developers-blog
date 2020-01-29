@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { Post } from 'models/Post';
 import { MarkdownRemarkResults } from 'models/MarkdownRemark';
 
-export const usePosts: () => Post[] = () => {
+export const usePosts = (): Post[] => {
   const {
     allMarkdownRemark: { edges },
   }: MarkdownRemarkResults = useStaticQuery(graphql`
