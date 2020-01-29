@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@storybook/addon-actions": "^5.3.9",
     "@storybook/addon-options": "^5.1.9",
     "@storybook/react": "^5.2.5",
     "@types/classnames": "^2.2.9",
