@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import './index.scss';
 
-import { usePosts } from "hooks/posts";
+import { graphql } from "gatsby";
 
 import { Layout } from 'components/global/Layout';
 import { Profile } from 'components/molecules/Profile';
@@ -10,10 +10,14 @@ import { CardsList } from 'components/organisms/CardsList';
 import { PostCard } from 'components/molecules/PostCard';
 import { ProjectCard } from 'components/molecules/ProjectCard';
 
-type IndexPageProps = {};
+import { parsePosts } from "utils/posts";
 
-const IndexPage: React.FC<IndexPageProps> = () => {
-  const posts = usePosts();
+type IndexPageProps = {
+  data: any,
+};
+
+const IndexPage: React.FC<IndexPageProps> = ({data}) => {
+  const posts = parsePosts(data.allMarkdownRemark);
 
   return (
     <Layout className="index-page" title="Developers Blog" description="Lorem ipsum">
@@ -46,5 +50,28 @@ const IndexPage: React.FC<IndexPageProps> = () => {
     </Layout>
   );
 };
+
+export const pageQuery = graphql`
+  query {
+      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              path
+              cover {
+                childImageSharp {
+                  fluid(maxWidth: 500) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+            	}
+          	}
+        	}
+      	}
+    	}
+    }
+`;
 
 export default IndexPage;
