@@ -1,21 +1,21 @@
 export type MarkdownRemarkFrontmatter = {
-  date?: string | Date,
-  path: string,
-  title: string,
-}
+  date?: string | Date;
+  path: string;
+  title: string;
+};
 
 export type MarkdownRemarkNode = {
-  id: string,
-  excerpt?: string,
-  frontmatter: MarkdownRemarkFrontmatter,
-}
+  id: string;
+  excerpt?: string;
+  frontmatter: MarkdownRemarkFrontmatter;
+};
 
 export type MarkdownRemarkEdge = {
-  node: MarkdownRemarkNode,
-}
+  node: MarkdownRemarkNode;
+};
 
 export type MarkdownRemarkResults = {
   allMarkdownRemark: {
-    edges: MarkdownRemarkEdge[],
-  }
-}
+    edges: MarkdownRemarkEdge[];
+  };
+};

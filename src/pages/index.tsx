@@ -1,8 +1,7 @@
 import * as React from 'react';
+import { graphql } from 'gatsby';
 
 import './index.scss';
-
-import { graphql } from "gatsby";
 
 import { Layout } from 'components/global/Layout';
 import { Profile } from 'components/molecules/Profile';
@@ -10,13 +9,13 @@ import { CardsList } from 'components/organisms/CardsList';
 import { PostCard } from 'components/molecules/PostCard';
 import { ProjectCard } from 'components/molecules/ProjectCard';
 
-import { parsePosts } from "utils/posts";
+import { parsePosts } from 'utils/posts';
 
 type IndexPageProps = {
-  data: any,
+  data: any;
 };
 
-const IndexPage: React.FC<IndexPageProps> = ({data}) => {
+const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const posts = parsePosts(data.allMarkdownRemark);
 
   return (
@@ -32,12 +31,8 @@ const IndexPage: React.FC<IndexPageProps> = ({data}) => {
 
       <main className="index-page_inner">
         <CardsList title="Posts.">
-          {posts.map((post) => (
-            <PostCard
-              key={`post-${post.id}`}
-              title={post.title}
-              link={post.path}
-            />
+          {posts.map(post => (
+            <PostCard key={`post-${post.id}`} title={post.title} link={post.path} image={post.cover} />
           ))}
         </CardsList>
 
@@ -53,25 +48,25 @@ const IndexPage: React.FC<IndexPageProps> = ({data}) => {
 
 export const pageQuery = graphql`
   query {
-      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-        edges {
-          node {
-            id
-            frontmatter {
-              title
-              path
-              cover {
-                childImageSharp {
-                  fluid(maxWidth: 500) {
-                    ...GatsbyImageSharpFluid
-                  }
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            path
+            cover {
+              childImageSharp {
+                fluid(maxWidth: 600) {
+                  ...GatsbyImageSharpFluid
                 }
-            	}
-          	}
-        	}
-      	}
-    	}
+              }
+            }
+          }
+        }
+      }
     }
+  }
 `;
 
 export default IndexPage;

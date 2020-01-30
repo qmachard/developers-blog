@@ -1,4 +1,4 @@
-import { parsePost } from "./posts";
+import { parsePost } from './posts';
 
 const simpleNode = {
   id: '1245678',
@@ -9,9 +9,9 @@ const simpleNode = {
       childImageSharp: {
         fluid: {
           src: '/path/to/image.jpg',
-        }
-      }
-    }
+        },
+      },
+    },
   },
   html: '<p>Hello world!</p>',
 };
@@ -23,8 +23,8 @@ const simpleNodes = {
     },
     {
       node: simpleNode,
-    }
-  ]
+    },
+  ],
 };
 
 test('parse simple node', () => {
@@ -52,6 +52,6 @@ test('parse list of simple node', () => {
       path: '/lorem-ipsum',
       cover: '/path/to/image.jpg',
       html: '<p>Hello world!</p>',
-    }
+    },
   ]);
 });

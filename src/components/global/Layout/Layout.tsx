@@ -31,5 +31,3 @@ export const Layout: React.FC<LayoutProps> = ({ title, description, className, c
     </div>
   );
 };
-
-export default Layout;

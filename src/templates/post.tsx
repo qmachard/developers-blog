@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { graphql } from 'gatsby';
 
-import Layout from 'components/global/Layout';
-import { parsePost } from "../utils/posts";
+import { Layout } from 'components/global/Layout';
+import { parsePost } from 'utils/posts';
 
 type PostPageProps = {
   data: any;
@@ -12,11 +12,11 @@ type PostPageProps = {
 const PostPage: React.FC<PostPageProps> = ({ data }) => {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
 
-  const post  = parsePost(markdownRemark);
+  const post = parsePost(markdownRemark);
 
   return (
-    <Layout title="Developers Blog">
-      <img src={post.cover} alt={post.title}/>
+    <Layout title={post.title} description={post.title}>
+      <img src={post.cover} alt={post.title} />
 
       <h1>{post.title}</h1>
       <h2>{post.path}</h2>
