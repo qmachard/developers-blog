@@ -1,13 +1,17 @@
-import React from 'react';
-import * as PropTypes from 'prop-types';
+import * as React from 'react';
+import {Helmet} from 'react-helmet';
 
 import './Layout.scss';
-import {Helmet} from 'react-helmet';
+
+export type LayoutProps = {
+  title: string,
+  description: string,
+}
 
 /**
  * Layout Component
  */
-const Layout = ({title, description, children}) => (
+export const Layout: React.FC<LayoutProps> = ({title, description, children}) => (
   <div className="layout">
     <Helmet>
       <html lang="fr" />
@@ -21,12 +25,5 @@ const Layout = ({title, description, children}) => (
     {children}
   </div>
 );
-
-Layout.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-};
-
-Layout.defaultProps = {};
 
 export default Layout;

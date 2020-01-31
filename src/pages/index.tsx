@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Layout from '../components/global/Layout';
+import { Layout } from 'components/global/Layout';
 
 import { Card } from 'components/atoms/Card';
 
@@ -11,7 +11,7 @@ const IndexPage = () => {
   };
 
   return (
-    <Layout title="Developers Blog">
+    <Layout title="Developers Blog" description="Lorem ipsum">
       <Card>Lorem ipsum</Card>
     </Layout>
   );

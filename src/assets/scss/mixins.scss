@@ -25,3 +25,9 @@
     }
   }
 }
+
+@mixin desktop {
+  @media screen and (min-width: 700px) {
+    @content;
+  }
+}

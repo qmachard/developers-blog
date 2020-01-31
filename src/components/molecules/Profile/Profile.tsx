@@ -9,6 +9,7 @@ type ProfileProps = {
   image: string;
   name: string;
   username: string;
+  background?: string;
   profession?: string;
   website?: string;
   location?: string;
@@ -17,9 +18,18 @@ type ProfileProps = {
 /**
  * Profile Component
  */
-export const Profile: React.FC<ProfileProps> = ({ image, name, username, profession, website, location }) => (
-  <section className="profile">
+export const Profile: React.FC<ProfileProps> = ({
+  image,
+  name,
+  username,
+  background,
+  profession,
+  website,
+  location,
+}) => (
+  <section style={{ backgroundImage: background ? `url(${background})` : '' }} className="profile">
     <img className="profile_image" src={image} alt="" />
+
     <h1 className="profile_name">{name}</h1>
     <p className="profile_username">
       <a href={`http://github.com/${username}`}>@{username}</a>

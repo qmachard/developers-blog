@@ -1,28 +1,61 @@
-.profile  {}
+@import '../../../assets/scss/mixins';
+
+.profile  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  width: 100%;
+  background: var(--color-dark) center center no-repeat;
+  background-size: cover;
+  color: white;
+
+  @include desktop {
+    height: 100vh;
+  }
+}
 
 .profile_image {
   display: block;
-  width: 180px;
-  height: 180px;
+  width: 110px;
+  height: 110px;
   border-radius: 5px;
   overflow: hidden;
+
+  @include desktop {
+    width: 180px;
+    height: 180px;
+  }
 }
 
 .profile_name {
-  font-size: 24px;
-  font-weight: var(--font-semibold);
   margin-top: 30px;
+  font-weight: var(--font-semibold);
+  font-size: 16px;
+
+  @include desktop {
+    font-size: 24px;
+  }
 }
 
 .profile_username {
-  font-size: 18px;
   margin-top: 8px;
+  font-size: 12px;
+
+  @include desktop {
+    font-size: 18px;
+  }
 }
 
 .profile_profession {
   margin-top: 30px;
-  font-size: 26px;
   font-weight: var(--font-semibold);
+  font-size: 20px;
+
+  @include desktop {
+    font-size: 26px;
+  }
 }
 
 .profile_tags {

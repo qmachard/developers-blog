@@ -42,6 +42,7 @@
     "@storybook/addon-options": "^5.1.9",
     "@storybook/react": "^5.2.5",
     "@types/classnames": "^2.2.9",
+    "@types/react-helmet": "^5.0.15",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
     "babel-loader": "^8.0.6",
