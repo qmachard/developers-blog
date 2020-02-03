@@ -1,4 +1,4 @@
-import { parsePost } from './posts';
+import { parsePost, parsePosts } from './posts';
 
 const simpleNode = {
   id: '1245678',
@@ -28,7 +28,7 @@ const simpleNodes = {
 };
 
 test('parse simple node', () => {
-  expect(parsePost(simpleNode)).toBe({
+  expect(parsePost(simpleNode)).toStrictEqual({
     id: '1245678',
     title: 'Lorem ipsum',
     path: '/lorem-ipsum',
@@ -38,7 +38,7 @@ test('parse simple node', () => {
 });
 
 test('parse list of simple node', () => {
-  expect(parsePost(simpleNodes)).toBe([
+  expect(parsePosts(simpleNodes)).toStrictEqual([
     {
       id: '1245678',
       title: 'Lorem ipsum',
