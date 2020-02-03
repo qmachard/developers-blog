@@ -1,19 +1,19 @@
 import * as React from 'react';
-import {Helmet} from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import classNames from 'classnames';
 
 import './Layout.scss';
 
 export type LayoutProps = {
-  title: string,
-  description: string,
-  className?: string,
-}
+  title: string;
+  description: string;
+  className?: string;
+};
 
 /**
  * Layout Component
  */
-export const Layout: React.FC<LayoutProps> = ({title, description, className, children}) => {
+export const Layout: React.FC<LayoutProps> = ({ title, description, className, children }) => {
   const componentClassNames = classNames('layout', className);
 
   return (
