@@ -27,7 +27,7 @@ export const Profile: React.FC<ProfileProps> = ({
   website,
   location,
 }) => (
-  <section style={{ backgroundImage: background ? `url(${background})` : '' }} className="profile">
+  <aside style={{ backgroundImage: background ? `url(${background})` : '' }} className="profile">
     <img className="profile_image" src={image} alt="" />
 
     <h1 className="profile_name">{name}</h1>
@@ -52,5 +52,5 @@ export const Profile: React.FC<ProfileProps> = ({
         )}
       </ul>
     )}
-  </section>
+  </aside>
 );

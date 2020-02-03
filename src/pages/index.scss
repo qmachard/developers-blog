@@ -1,0 +1,33 @@
+@import '../assets/scss/mixins';
+
+.index-page {
+  .profile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60vh;
+  }
+
+  @include desktop {
+    .profile {
+      height: 100%;
+      width: 30vw;
+    }
+  }
+}
+
+.index-page_inner {
+  display: block;
+  position: relative;
+  margin-top: 60vh;
+  padding: 60px 20px;
+  background: var(--color-background);
+  z-index: 2;
+
+  @include desktop {
+    margin-top: 0;
+    margin-left: 30vw;
+    padding: 60px 40px;
+  }
+}
