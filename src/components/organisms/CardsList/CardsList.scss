@@ -1,4 +1,8 @@
-.cards-list {}
+.cards-list {
+  & + .cards-list {
+    margin-top: 100px;
+  }
+}
 
 .cards-list_item {
   margin-bottom: 20px;

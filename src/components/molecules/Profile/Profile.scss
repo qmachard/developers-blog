@@ -1,28 +1,80 @@
-.profile  {}
+@import '../../../assets/scss/mixins';
+
+.profile  {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  background: var(--color-background) center center no-repeat;
+  background-size: cover;
+  color: var(--color-text);
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,0) 0%, var(--color-background) 100%);
+    z-index: 1;
+  }
+
+  & > * {
+    z-index: 2;
+  }
+
+  @include desktop {
+    &:before {
+      background: linear-gradient(90deg, rgba(10,10,10,0) 0%, var(--color-background) 100%);
+    }
+  }
+}
 
 .profile_image {
   display: block;
-  width: 180px;
-  height: 180px;
+  width: 110px;
+  height: 110px;
   border-radius: 5px;
   overflow: hidden;
+
+  @include desktop {
+    width: 180px;
+    height: 180px;
+  }
 }
 
 .profile_name {
-  font-size: 24px;
-  font-weight: var(--font-semibold);
   margin-top: 30px;
+  font-weight: var(--font-semibold);
+  font-size: 16px;
+
+  @include desktop {
+    font-size: 24px;
+  }
 }
 
 .profile_username {
-  font-size: 18px;
   margin-top: 8px;
+  font-size: 12px;
+
+  @include desktop {
+    font-size: 18px;
+  }
 }
 
 .profile_profession {
   margin-top: 30px;
-  font-size: 26px;
   font-weight: var(--font-semibold);
+  font-size: 20px;
+
+  @include desktop {
+    font-size: 26px;
+  }
 }
 
 .profile_tags {
