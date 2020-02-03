@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { graphql } from 'gatsby';
 
 import './index.scss';
 
@@ -8,7 +9,15 @@ import { CardsList } from 'components/organisms/CardsList';
 import { PostCard } from 'components/molecules/PostCard';
 import { ProjectCard } from 'components/molecules/ProjectCard';
 
-const IndexPage = () => {
+import { parsePosts } from 'utils/posts';
+
+type IndexPageProps = {
+  data: any;
+};
+
+const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
+  const posts = parsePosts(data.allMarkdownRemark);
+
   return (
     <Layout className="index-page" title="Developers Blog" description="Lorem ipsum">
       <Profile
@@ -22,12 +31,9 @@ const IndexPage = () => {
 
       <main className="index-page_inner">
         <CardsList title="Posts.">
-          <PostCard title="Premier post" image="https://images.unsplash.com/photo-1558980394-dbb977039a2e?w=500" />
-          <PostCard title="Premier post" image="https://images.unsplash.com/photo-1558980394-dbb977039a2e?w=500" />
-          <PostCard title="Premier post" image="https://images.unsplash.com/photo-1558980394-dbb977039a2e?w=500" />
-          <PostCard title="Premier post" image="https://images.unsplash.com/photo-1558980394-dbb977039a2e?w=500" />
-          <PostCard title="Premier post" image="https://images.unsplash.com/photo-1558980394-dbb977039a2e?w=500" />
-          <PostCard title="Premier post" image="https://images.unsplash.com/photo-1558980394-dbb977039a2e?w=500" />
+          {posts.map(post => (
+            <PostCard key={`post-${post.id}`} title={post.title} link={post.path} image={post.cover} />
+          ))}
         </CardsList>
 
         <CardsList title="Projects.">
@@ -39,5 +45,28 @@ const IndexPage = () => {
     </Layout>
   );
 };
+
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            path
+            cover {
+              childImageSharp {
+                fluid(maxWidth: 600) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;

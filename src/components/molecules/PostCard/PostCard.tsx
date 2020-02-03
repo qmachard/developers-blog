@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'gatsby';
 
 import { Card } from 'components/atoms/Card';
 import { Icon } from 'components/atoms/Icon';
@@ -23,9 +24,9 @@ export const PostCard: React.FC<PostCardProps> = ({ title, description, image, l
     <div className="post-card_inner">
       <h1 className="post-card_title card_title">
         {link ? (
-          <a href={link} className="a-block">
+          <Link to={link} className="a-block">
             {title}
-          </a>
+          </Link>
         ) : (
           title
         )}
