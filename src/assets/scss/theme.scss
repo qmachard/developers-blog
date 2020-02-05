@@ -10,7 +10,7 @@
   --font-bold: #{$font-bold};
   --font-size-normal: 14px;
   --font-size-title-1: 50px;
-  --color-background: #0A0A0A;
+  --color-background: #{$color-pepper-70};
   --color-background-secondary: #303F9F;
   --color-background-tertiary: #141414;
   --color-background-tertiary-hover: #363636;
@@ -24,4 +24,11 @@
   --color-dark: #0a0a0a;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07);
   --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07);
+}
+
+[data-theme="light"] {
+  --color-background: #{$color-salt-30};
+  --color-background-secondary: #{$color-salt-20};
+  --color-background-tertiary: #{$color-salt-30};
+  --color-primary: #{$color-pepper-80};
 }
