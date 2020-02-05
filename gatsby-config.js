@@ -8,6 +8,12 @@ require('dotenv').config({
 });
 
 module.exports = {
+  siteMetadata: {
+    title: `Developer's Blog`,
+    description: `Every devs need a simple blog`,
+    author: `@qmachard`,
+    theme: `dark`,
+  },
   pathPrefix: '/developers-blog',
   plugins: [
     `gatsby-plugin-sass`,

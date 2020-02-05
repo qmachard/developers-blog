@@ -11,6 +11,9 @@ type IndexPageProps = {
 
 const IndexPage: React.FC<IndexPageProps> = ({
   data: {
+    site: {
+      siteMetadata: { theme },
+    },
     allPost: { nodes: posts },
     allProject: { nodes: projects },
   },
@@ -25,7 +28,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
   };
 
   return (
-    <Layout title="Developers Blog" description="Lorem ipsum">
+    <Layout className="index-page" title="Developers Blog" description="Lorem ipsum" theme={theme}>
       <IndexPageComponent
         posts={posts.map((post: any) => ({
           id: post.id,
@@ -51,6 +54,11 @@ const IndexPage: React.FC<IndexPageProps> = ({
 
 export const pageQuery = graphql`
   query {
+    site {
+      siteMetadata {
+        theme
+      }
+    }
     allPost {
       nodes {
         id
