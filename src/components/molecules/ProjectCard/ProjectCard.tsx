@@ -8,7 +8,7 @@ import { Icon } from 'components/atoms/Icon';
 
 import './ProjectCard.scss';
 
-type ProjectCardProps = {
+export type ProjectCardProps = {
   title: string;
   description: string;
   link?: string;
