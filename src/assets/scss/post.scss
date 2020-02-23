@@ -1,0 +1,166 @@
+.post {
+  font-size: 20px;
+  line-height: 1.58;
+  font-family: var(--font-family-serif);
+  font-weight: var(--font-normal);
+
+  h1, h2, h3, h4, h5, h6,
+  p, ul, ol, code, table, blockquote {
+    margin-top: 2em;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-title);
+
+    & + p,
+    & + ul {
+      margin-top: 10px;
+    }
+  }
+
+  h1, h2 {
+    font-size: 40px;
+  }
+
+  h3 {
+    font-size: 32px;
+  }
+
+  h4 {
+    font-size: 28px;
+  }
+
+  b, strong {
+    font-weight: bold;
+  }
+
+  i, em {
+    font-style: italic;
+  }
+
+  a:link {
+    position: relative;
+    border-bottom: 1px solid var(--color-text);
+    z-index: 1;
+    transition: border .2s;
+
+    &:hover {
+      border-bottom: 1px solid var(--color-primary);
+    }
+  }
+
+  table {
+    background: var(--color-bg-card);
+    border-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+
+    th, td {
+      padding: 10px 15px;
+      border: 1px solid var(--color-background);
+    }
+
+    th {
+      background: var(--color-background-secondary);
+
+      &:first-child {
+        border-top-left-radius: 10px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 10px;
+      }
+    }
+  }
+
+  code {
+    background: var(--color-bg-card);
+    color: var(--color-primary);
+    font-family: monospace;
+    border-radius: 2px;
+    font-style: normal;
+
+    &:before,
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 5px;
+    }
+  }
+
+  pre {
+    font-family: monospace;
+    background: var(--color-bg-card);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 2em;
+    font-size: 14px;
+
+    code {
+      color: var(--color-text);
+
+      &:before,
+      &:after {
+        content: none;
+      }
+    }
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  blockquote {
+    padding: 0 0 0 20px;
+    font-style: italic;
+    border-left: 2px solid var(--color-primary);
+    color: var(--color-secondary);
+  }
+
+  li {
+    position: relative;
+    padding-left: 25px;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 12px;
+      left: 0;
+      height: 8px;
+      width: 8px;
+      background: var(--color-primary);
+      border: 1px solid var(--color-primary);
+      border-radius: 8px;
+    }
+
+    li {
+      &:before {
+        background: none;
+      }
+
+      li {
+        &:before {
+          height: 5px;
+          width: 5px;
+          background: var(--color-primary);
+          border-radius: 0;
+        }
+      }
+    }
+
+    //li {
+    //  padding-left: 30px;
+    //  list-style: circle inside;
+    //
+    //  li {
+    //    list-style: square inside;
+    //  }
+    //}
+  }
+}
