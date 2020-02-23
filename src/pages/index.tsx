@@ -1,13 +1,9 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 
-import './index.scss';
-
 import { Layout } from 'components/global/Layout';
-import { Profile } from 'components/molecules/Profile';
-import { CardsList } from 'components/organisms/CardsList';
-import { PostCard } from 'components/molecules/PostCard';
-import { ProjectCard } from 'components/molecules/ProjectCard';
+import { IndexPage as IndexPageComponent } from 'components/pages/IndexPage';
+import { ProfileProps } from 'components/molecules/Profile';
 
 import { parsePosts } from 'utils/posts';
 
@@ -18,30 +14,28 @@ type IndexPageProps = {
 const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const posts = parsePosts(data.allMarkdownRemark);
 
+  const profile: ProfileProps = {
+    username: 'qmachard',
+    name: 'Quentin Machard',
+    image: 'https://avatars2.githubusercontent.com/u/11388211',
+    background: 'https://images.unsplash.com/photo-1550647134-b512b01d62a2?h=1500',
+    profession: 'Front-End Developer',
+    location: 'Rennes, France',
+  };
+
   return (
-    <Layout className="index-page" title="Developers Blog" description="Lorem ipsum">
-      <Profile
-        username="qmachard"
-        name="Quentin Machard"
-        image="https://avatars2.githubusercontent.com/u/11388211"
-        background="https://images.unsplash.com/photo-1550647134-b512b01d62a2?h=1500"
-        profession="Front-End Developer"
-        location="Rennes, France"
+    <Layout title="Developers Blog" description="Lorem ipsum">
+      <IndexPageComponent
+        posts={posts.map(post => ({
+          id: post.id,
+          description: post.excerpt,
+          title: post.title,
+          image: post.cover,
+          link: post.path,
+        }))}
+        profile={profile}
+        projects={[]}
       />
-
-      <main className="index-page_inner">
-        <CardsList title="Posts.">
-          {posts.map(post => (
-            <PostCard key={`post-${post.id}`} title={post.title} link={post.path} image={post.cover} />
-          ))}
-        </CardsList>
-
-        <CardsList title="Projects.">
-          <ProjectCard title="Project" description="Lorem ipsum dolor" language="Javascript" />
-          <ProjectCard title="Project" description="Lorem ipsum dolor" language="Javascript" />
-          <ProjectCard title="Project" description="Lorem ipsum dolor" language="Javascript" />
-        </CardsList>
-      </main>
     </Layout>
   );
 };
@@ -55,6 +49,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             path
+            excerpt
             cover {
               childImageSharp {
                 fluid(maxWidth: 600) {

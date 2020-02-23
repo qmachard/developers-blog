@@ -4,13 +4,17 @@
 :root {
   --font-family: #{$font-family};
   --font-family-title: #{$font-family-title};
+  --font-family-serif: #{$font-family-serif};
   --font-normal: #{$font-normal};
   --font-semibold: #{$font-semibold};
   --font-bold: #{$font-bold};
   --font-size-normal: 14px;
   --font-size-title-1: 50px;
   --color-background: #0A0A0A;
+  --color-background-secondary: #303F9F;
   --color-text: #fff;
+  --color-primary: #7681ca;
+  --color-secondary: #aaaaaa;
   --color-bg-card: rgb(20, 20, 20);
   --color-smooth: #e2e2e2;
   --color-dark: #0a0a0a;

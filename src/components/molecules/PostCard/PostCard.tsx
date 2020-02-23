@@ -6,7 +6,7 @@ import { Icon } from 'components/atoms/Icon';
 
 import './PostCard.scss';
 
-type PostCardProps = {
+export type PostCardProps = {
   title: string;
   description?: string;
   image?: string;

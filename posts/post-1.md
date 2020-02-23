@@ -3,6 +3,8 @@ path: "/my-first-post"
 date: "2020-01-29"
 title: "My first blog post"
 cover: ./example-cover.jpg
+excerpt: "Lorem ipsum"
+tags: ["css", "html", "a11y"]
 ---
 # Lorem ipsum
 

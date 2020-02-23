@@ -5,7 +5,7 @@ import { Icon } from 'components/atoms/Icon';
 
 import './Profile.scss';
 
-type ProfileProps = {
+export type ProfileProps = {
   image: string;
   name: string;
   username: string;
