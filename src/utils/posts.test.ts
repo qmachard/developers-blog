@@ -12,6 +12,8 @@ const simpleNode = {
         },
       },
     },
+    excerpt: 'Lorem ipsum excerpt',
+    tags: ['javascript'],
   },
   html: '<p>Hello world!</p>',
 };
@@ -33,7 +35,9 @@ test('parse simple node', () => {
     title: 'Lorem ipsum',
     path: '/lorem-ipsum',
     cover: '/path/to/image.jpg',
+    excerpt: 'Lorem ipsum excerpt',
     html: '<p>Hello world!</p>',
+    tags: ['javascript'],
   });
 });
 
@@ -44,14 +48,18 @@ test('parse list of simple node', () => {
       title: 'Lorem ipsum',
       path: '/lorem-ipsum',
       cover: '/path/to/image.jpg',
+      excerpt: 'Lorem ipsum excerpt',
       html: '<p>Hello world!</p>',
+      tags: ['javascript'],
     },
     {
       id: '1245678',
       title: 'Lorem ipsum',
       path: '/lorem-ipsum',
       cover: '/path/to/image.jpg',
+      excerpt: 'Lorem ipsum excerpt',
       html: '<p>Hello world!</p>',
+      tags: ['javascript'],
     },
   ]);
 });
