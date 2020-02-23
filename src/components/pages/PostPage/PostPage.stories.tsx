@@ -4,7 +4,6 @@ import { storiesOf } from '@storybook/react';
 import samplePost from './sample-post';
 
 import { PostPage } from 'components/pages/PostPage/PostPage';
-import { Author } from 'components/molecules/Author';
 
 const stories = storiesOf('Pages|PostPage', module);
 

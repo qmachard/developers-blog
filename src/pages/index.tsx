@@ -46,10 +46,10 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          excerpt
           frontmatter {
             title
             path
+            excerpt
             cover {
               childImageSharp {
                 fluid(maxWidth: 600) {

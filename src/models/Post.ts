@@ -5,4 +5,5 @@ export type Post = {
   excerpt?: string;
   cover?: string;
   html?: string;
+  tags?: string[];
 };
