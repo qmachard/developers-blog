@@ -1,0 +1,42 @@
+@import '../../../assets/scss/mixins';
+
+.author {
+  display: flex;
+  align-items: center;
+}
+
+.author_profile {
+  display: block;
+  margin-right: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+
+  @include desktop {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+.author_name {
+  display: block;
+  font-size: 18px;
+  font-weight: var(--font-bold);
+  font-family: var(--font-family-title);
+
+  @include desktop {
+    font-size: 24px;
+  }
+}
+
+.author_username {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+
+  @include desktop {
+    font-size: 20px;
+  }
+}

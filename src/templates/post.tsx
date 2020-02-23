@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 
 import { Layout } from 'components/global/Layout';
 import { parsePost } from 'utils/posts';
+import { Author } from 'components/molecules/Author';
 
 type PostPageProps = {
   data: any;
@@ -17,6 +18,8 @@ const PostPage: React.FC<PostPageProps> = ({ data }) => {
   return (
     <Layout title={post.title} description={post.title}>
       <img src={post.cover} alt={post.title} />
+
+      <Author image="https://avatars2.githubusercontent.com/u/11388211" name="Quentin Machard" username="qmachard" />
 
       <h1>{post.title}</h1>
       <h2>{post.path}</h2>
