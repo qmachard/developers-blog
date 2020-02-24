@@ -5,13 +5,13 @@ import './Author.scss';
 export type AuthorProps = {
   name: string;
   username?: string;
-  image?: string;
+  avatar?: string;
 };
 
-export const Author: React.FC<AuthorProps> = ({ image, name, username }) => {
+export const Author: React.FC<AuthorProps> = ({ avatar, name, username }) => {
   return (
     <div className="author">
-      {image && <img className="author_profile" src={image} alt={name} />}
+      {avatar && <img className="author_profile" src={avatar} alt={name} />}
 
       <div className="author_inner">
         <span className="author_name">{name}</span>

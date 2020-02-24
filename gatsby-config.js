@@ -8,9 +8,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-force-file-loader`,
       options: {
@@ -25,13 +22,6 @@ module.exports = {
       resolve: 'gatsby-plugin-resolve-src',
       options: {
         addSassLoader: false,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/posts`,
       },
     },
   ],

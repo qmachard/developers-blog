@@ -5,15 +5,15 @@ import { Layout } from 'components/global/Layout';
 import { IndexPage as IndexPageComponent } from 'components/pages/IndexPage';
 import { ProfileProps } from 'components/molecules/Profile';
 
-import { parsePosts } from 'utils/posts';
-
 type IndexPageProps = {
   data: any;
 };
 
-const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
-  const posts = data.allPost.nodes;
-
+const IndexPage: React.FC<IndexPageProps> = ({
+  data: {
+    allPost: { nodes: posts },
+  },
+}) => {
   const profile: ProfileProps = {
     username: 'qmachard',
     name: 'Quentin Machard',
