@@ -12,6 +12,17 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-transformer-remark`,
     {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `GitHub`,
+        fieldName: `github`,
+        url: `https://api.github.com/graphql`,
+        headers: {
+          Authorization: `Bearer e563a032714669b183ebaa849efab57d8325bf91`,
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-force-file-loader`,
       options: {
         rules: [
