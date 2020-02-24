@@ -13,7 +13,9 @@ type PostPageProps = {
 const PostPage: React.FC<PostPageProps> = ({ data }) => {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
 
-  const post = parsePost(markdownRemark);
+  // const post = parsePost(markdownRemark);
+
+  const post = data.post;
 
   return (
     <Layout title={post.title} description={post.title}>
@@ -24,21 +26,14 @@ const PostPage: React.FC<PostPageProps> = ({ data }) => {
 
 export const pageQuery = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+    post(path: { eq: $path }) {
+      title
       html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
-        title
-        excerpt
-        tags
-        cover {
-          childImageSharp {
-            fluid(maxWidth: 1200, maxHeight: 400) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+      author {
+        avatar
+        username
+        name
+        id
       }
     }
   }
