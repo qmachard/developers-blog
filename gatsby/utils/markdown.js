@@ -1,7 +1,8 @@
-const MarkdownIt = require('markdown-it');
+const md = require('markdown-it')();
 const YamlFront = require('yaml-front-matter');
+const prism = require('markdown-it-prism');
 
-const md = new MarkdownIt();
+md.use(prism);
 
 /**
  * @param {string} markdown

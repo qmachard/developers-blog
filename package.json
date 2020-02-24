@@ -33,6 +33,7 @@
     "gatsby-plugin-typescript": "^2.1.26",
     "imports-loader": "^0.8.0",
     "markdown-it": "^10.0.0",
+    "markdown-it-prism": "1.1.2",
     "node-fetch": "^2.6.0",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",

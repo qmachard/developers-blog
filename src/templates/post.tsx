@@ -25,10 +25,10 @@ export const pageQuery = graphql`
       path
       excerpt
       author {
-        avatar
         username
         name
-        id
+        avatar
+        github
       }
     }
   }

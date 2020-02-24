@@ -1,4 +1,4 @@
-.tag {
+.tag:not(.token) {
   display: inline-flex;
   align-items: center;
   font-weight: var(--font-semibold);
