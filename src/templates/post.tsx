@@ -21,6 +21,9 @@ export const pageQuery = graphql`
     post(path: { eq: $path }) {
       title
       html
+      cover
+      path
+      excerpt
       author {
         avatar
         username

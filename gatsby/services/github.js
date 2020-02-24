@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 const { memoize } = require('../utils/memoize');
+const { transformMarkdownToHTML } = require('../utils/markdown');
 
 const GITHUB_BASE_URL = `http://api.github.com`;
 const GITHUB_REPOSITORY = `qmachard/developers-blog`;
@@ -24,16 +25,20 @@ const fetchPosts = async () => {
   ).then(response => response.json());
 
   return Promise.all(
-    posts.map(async post => ({
-      id: post.id,
-      title: post.title,
-      author: await fetchUser(post.user.login),
-      path: `/posts/${post.id}`,
-      excerpt: '',
-      cover: '',
-      html: post.body,
-      tags: [],
-    })),
+    posts.map(async post => {
+      const { html, cover, excerpt, slug } = transformMarkdownToHTML(post.body);
+
+      return {
+        id: post.id,
+        title: post.title,
+        author: await fetchUser(post.user.login),
+        path: `/posts/${slug}`,
+        excerpt: excerpt || '',
+        cover: cover || '',
+        html,
+        tags: [],
+      };
+    }),
   );
 };
 exports.fetchPosts = fetchPosts;
