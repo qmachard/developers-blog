@@ -3,9 +3,7 @@
   background: var(--color-bg-card);
   border-radius: 5px;
   color: var(--color-text);
-  box-shadow:
-          0 3px 3px rgba(0, 0, 0, 0.2), /** Simulate Direct Light - Color is a darkened shade of blue **/
-          0 3px 20px rgba(0, 0, 0, 0.3)  /** Simulate Ambient Light - Color is a darkened shade of blue **/;
+  box-shadow: var(--shadow);
   overflow: hidden;
 
   &--padding {
@@ -20,9 +18,7 @@
     &:hover {
       z-index: 1;
       transform: scale(1.03);
-      box-shadow:
-              0 3px 10px rgba(0, 0, 0, 0.2), /** Simulate Direct Light - Color is a darkened shade of blue **/
-              0 10px 30px rgba(0, 0, 0, 0.3)  /** Simulate Ambient Light - Color is a darkened shade of blue **/;
+      box-shadow: var(--shadow-hover);
     }
   }
 }

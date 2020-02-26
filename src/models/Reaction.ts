@@ -1,1 +1,1 @@
-export type Reactions = {[key: string]: number};
+export type Reactions = { [key: string]: number };

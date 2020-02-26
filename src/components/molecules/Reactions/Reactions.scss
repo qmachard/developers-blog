@@ -1,0 +1,33 @@
+.reactions {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.reactions_item {
+  & + .reactions_item {
+    margin-left: 10px;
+  }
+}
+
+.reactions_button {
+  background: var(--color-background-tertiary);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: var(--color-text);
+  font-size: 15px;
+  line-height: 1;
+  transition: all .2s;
+
+  &:focus,
+  &:hover {
+    background: var(--color-background-tertiary-hover);
+  }
+
+  .reactions_item--selected & {
+    background: var(--color-background-inverted);
+    color: var(--color-text-inverted);
+    box-shadow: var(--shadow);
+  }
+}

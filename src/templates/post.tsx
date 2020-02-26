@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 
-import { useReactions } from "../hooks/useReactions";
+import { useReactions } from '../hooks/useReactions';
 
 import { Layout } from 'components/global/Layout';
 import { PostPage as PostPageComponent, PostPagePost as PostPagePostType } from 'components/pages/PostPage';
@@ -9,18 +9,18 @@ import { PostPage as PostPageComponent, PostPagePost as PostPagePostType } from 
 export type PostPageProps = {
   data: {
     post: {
-      id: string,
-      title: string,
-      html: string,
-      path: string,
-      cover?: string,
+      id: string;
+      title: string;
+      html: string;
+      path: string;
+      cover?: string;
       author: {
-        avatar: string,
-        username: string,
-        name: string,
-        id: string,
-      },
-    }
+        avatar: string;
+        username: string;
+        name: string;
+        id: string;
+      };
+    };
   };
 };
 
@@ -32,7 +32,9 @@ const PostPage: React.FC<PostPageProps> = ({ data: { post } }) => {
       <PostPageComponent post={post as PostPagePostType} author={post.author} />
       <ul>
         {Object.keys(reactions).map(reaction => (
-          <li key={reaction}>{reaction} [{reactions[reaction]}]</li>
+          <li key={reaction}>
+            {reaction} [{reactions[reaction]}]
+          </li>
         ))}
       </ul>
     </Layout>
