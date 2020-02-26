@@ -1,17 +1,40 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 
-import { Layout } from 'components/global/Layout';
-import { PostPage as PostPageComponent, PostPagePost } from 'components/pages/PostPage';
+import { useReactions } from "../hooks/useReactions";
 
-type PostPageProps = {
-  data: any;
+import { Layout } from 'components/global/Layout';
+import { PostPage as PostPageComponent, PostPagePost as PostPagePostType } from 'components/pages/PostPage';
+
+export type PostPageProps = {
+  data: {
+    post: {
+      id: string,
+      title: string,
+      html: string,
+      path: string,
+      cover?: string,
+      author: {
+        avatar: string,
+        username: string,
+        name: string,
+        id: string,
+      },
+    }
+  };
 };
 
 const PostPage: React.FC<PostPageProps> = ({ data: { post } }) => {
+  const reactions = useReactions(post.id);
+
   return (
     <Layout title={post.title} description={post.title}>
-      <PostPageComponent post={post as PostPagePost} author={post.author} />
+      <PostPageComponent post={post as PostPagePostType} author={post.author} />
+      <ul>
+        {Object.keys(reactions).map(reaction => (
+          <li key={reaction}>{reaction} [{reactions[reaction]}]</li>
+        ))}
+      </ul>
     </Layout>
   );
 };
@@ -19,11 +42,12 @@ const PostPage: React.FC<PostPageProps> = ({ data: { post } }) => {
 export const pageQuery = graphql`
   query($path: String!) {
     post(path: { eq: $path }) {
+      id
       title
       html
-      cover
       path
       excerpt
+      cover
       tags
       author {
         username
