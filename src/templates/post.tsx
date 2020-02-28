@@ -24,6 +24,7 @@ export const pageQuery = graphql`
       cover
       path
       excerpt
+      tags
       author {
         username
         name

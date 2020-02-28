@@ -42,7 +42,7 @@ const fetchPosts = async () => {
         excerpt: excerpt || '',
         cover: cover || '',
         html,
-        tags: [],
+        tags: post.labels.filter(label => label.name !== 'blog').map(label => label.name),
       };
     }),
   );
