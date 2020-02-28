@@ -1,10 +1,7 @@
 const path = require(`path`);
 const { fetchPosts } = require('./gatsby/services/github');
 
-exports.sourceNodes = async ({
-  actions: { createNode },
-  createContentDigest
-}) => {
+exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
   const posts = await fetchPosts();
 
   posts.forEach(post => {
@@ -41,8 +38,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Handle errors
   if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
+    reporter.panicOnBuild(`Error while running GraphQL query.`);
+
+    return;
   }
 
   result.data.allPost.nodes.forEach(post => {
