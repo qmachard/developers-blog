@@ -35,7 +35,7 @@ const fetchPosts = async () => {
       const { html, cover, excerpt, slug } = transformMarkdownToHTML(post.body);
 
       return {
-        id: post.id,
+        id: post.number,
         title: post.title,
         author: await fetchUser(post.user.login),
         path: `/posts/${slug}`,

@@ -16,6 +16,17 @@ stories.add('default', () => (
   />
 ));
 
+stories.add('with 99+', () => (
+  <Reactions
+    reactions={{
+      '+1': 120,
+      tada: 99,
+      heart: 567,
+      rocket: 100,
+    }}
+  />
+));
+
 stories.add('with selected reactions', () => (
   <Reactions
     reactions={{

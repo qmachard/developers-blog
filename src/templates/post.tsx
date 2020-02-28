@@ -5,6 +5,7 @@ import { useReactions } from '../hooks/useReactions';
 
 import { Layout } from 'components/global/Layout';
 import { PostPage as PostPageComponent, PostPagePost as PostPagePostType } from 'components/pages/PostPage';
+import { Reactions } from 'components/molecules/Reactions';
 
 export type PostPageProps = {
   data: {
@@ -29,14 +30,7 @@ const PostPage: React.FC<PostPageProps> = ({ data: { post } }) => {
 
   return (
     <Layout title={post.title} description={post.title}>
-      <PostPageComponent post={post as PostPagePostType} author={post.author} />
-      <ul>
-        {Object.keys(reactions).map(reaction => (
-          <li key={reaction}>
-            {reaction} [{reactions[reaction]}]
-          </li>
-        ))}
-      </ul>
+      <PostPageComponent post={post as PostPagePostType} author={post.author} reactions={reactions} />
     </Layout>
   );
 };

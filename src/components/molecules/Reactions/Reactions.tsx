@@ -17,6 +17,18 @@ const availableReactions: { [key: string]: string } = {
   rocket: '🚀',
 };
 
+const formatReactionNumber = (number: number): string => {
+  if (!number) {
+    return '0';
+  }
+
+  if (number > 99) {
+    return '99+';
+  }
+
+  return `${number}`;
+};
+
 /**
  * Reactions Component
  */
@@ -31,7 +43,7 @@ export const Reactions: React.FC<ReactionsProps> = ({ reactions, selected = [] }
         <li key={reaction} className={itemClassName}>
           <button className="reactions_button">
             {availableReactions[reaction]}
-            <span className="reactions_number">{reactions[reaction] || 0}</span>
+            <span className="reactions_number">{formatReactionNumber(reactions[reaction])}</span>
           </button>
         </li>
       );

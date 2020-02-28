@@ -1,22 +1,27 @@
 .reactions {
   display: flex;
-  flex-wrap: wrap;
   width: 100%;
 }
 
 .reactions_item {
+  flex-basis: 0;
+  flex-shrink: 1;
+  flex-grow: 1;
+
   & + .reactions_item {
     margin-left: 10px;
   }
 }
 
 .reactions_button {
+  display: block;
+  width: 100%;
   background: var(--color-background-tertiary);
   border: none;
   border-radius: 5px;
-  padding: 10px 15px;
+  padding: 10px 5px;
   color: var(--color-text);
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1;
   transition: all .2s;
 
@@ -30,4 +35,8 @@
     color: var(--color-text-inverted);
     box-shadow: var(--shadow);
   }
+}
+
+.reactions_number {
+  margin-left: 5px;
 }

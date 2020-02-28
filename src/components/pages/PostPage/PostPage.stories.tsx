@@ -17,9 +17,21 @@ const post = {
 };
 
 const author = {
-  image: 'https://avatars2.githubusercontent.com/u/11388211',
+  avatar: 'https://avatars2.githubusercontent.com/u/11388211',
   name: 'Quentin Machard',
   username: 'qmachard',
 };
 
+const reactions = {
+  '+1': 100,
+  heart: 100,
+  tada: 100,
+  rocket: 100,
+};
+
+const selectedReactions = ['heart'];
+
 stories.add('default', () => <PostPage post={post} author={author} />);
+stories.add('with reactions', () => (
+  <PostPage post={post} author={author} reactions={reactions} selectedReactions={selectedReactions} />
+));
