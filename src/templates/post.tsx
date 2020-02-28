@@ -4,41 +4,31 @@ import { graphql } from 'gatsby';
 import { Layout } from 'components/global/Layout';
 import { PostPage as PostPageComponent, PostPagePost } from 'components/pages/PostPage';
 
-import { parsePost } from 'utils/posts';
-
 type PostPageProps = {
   data: any;
 };
 
-const PostPage: React.FC<PostPageProps> = ({ data }) => {
-  const { markdownRemark } = data; // data.markdownRemark holds your post data
-
-  const post = parsePost(markdownRemark);
-
+const PostPage: React.FC<PostPageProps> = ({ data: { post } }) => {
   return (
     <Layout title={post.title} description={post.title}>
-      <PostPageComponent post={post as PostPagePost} />
+      <PostPageComponent post={post as PostPagePost} author={post.author} />
     </Layout>
   );
 };
 
 export const pageQuery = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+    post(path: { eq: $path }) {
+      title
       html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
-        title
-        excerpt
-        tags
-        cover {
-          childImageSharp {
-            fluid(maxWidth: 1200, maxHeight: 400) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+      cover
+      path
+      excerpt
+      author {
+        username
+        name
+        avatar
+        github
       }
     }
   }

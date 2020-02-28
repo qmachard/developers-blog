@@ -5,18 +5,19 @@ import './Author.scss';
 export type AuthorProps = {
   name: string;
   username?: string;
-  image?: string;
+  avatar?: string;
+  github?: string;
 };
 
-export const Author: React.FC<AuthorProps> = ({ image, name, username }) => {
-  return (
-    <div className="author">
-      {image && <img className="author_profile" src={image} alt={name} />}
+export const Author: React.FC<AuthorProps> = ({ avatar, name, username, github }) => (
+  <div className="author">
+    {avatar && <img className="author_profile" src={avatar} alt={name} />}
 
-      <div className="author_inner">
-        <span className="author_name">{name}</span>
-        <span className="author_username">@{username}</span>
-      </div>
+    <div className="author_inner">
+      <span className="author_name">{name}</span>
+      <a href={github} className="author_username">
+        @{username}
+      </a>
     </div>
-  );
-};
+  </div>
+);

@@ -5,15 +5,15 @@ import { Layout } from 'components/global/Layout';
 import { IndexPage as IndexPageComponent } from 'components/pages/IndexPage';
 import { ProfileProps } from 'components/molecules/Profile';
 
-import { parsePosts } from 'utils/posts';
-
 type IndexPageProps = {
   data: any;
 };
 
-const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
-  const posts = parsePosts(data.allMarkdownRemark);
-
+const IndexPage: React.FC<IndexPageProps> = ({
+  data: {
+    allPost: { nodes: posts },
+  },
+}) => {
   const profile: ProfileProps = {
     username: 'qmachard',
     name: 'Quentin Machard',
@@ -26,7 +26,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   return (
     <Layout title="Developers Blog" description="Lorem ipsum">
       <IndexPageComponent
-        posts={posts.map(post => ({
+        posts={posts.map((post: any) => ({
           id: post.id,
           description: post.excerpt,
           title: post.title,
@@ -42,23 +42,13 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            path
-            excerpt
-            cover {
-              childImageSharp {
-                fluid(maxWidth: 600) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
+    allPost {
+      nodes {
+        id
+        title
+        path
+        cover
+        excerpt
       }
     }
   }

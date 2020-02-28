@@ -7,6 +7,7 @@
   height: 400px;
   align-items: center;
   justify-content: center;
+  background-size: cover;
 
   &:before {
     content: '';
@@ -37,7 +38,8 @@
 }
 
 .post-page_inner {
-  padding: 60px 0;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .post-page_tags {

@@ -1,21 +1,36 @@
 const path = require(`path`);
+const { fetchPosts } = require('./gatsby/services/github');
+
+exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
+  const posts = await fetchPosts();
+
+  posts.forEach(post => {
+    const { id, ...rest } = post;
+
+    createNode({
+      id: `${id}`,
+      parent: null,
+      children: [],
+      internal: {
+        type: `post`,
+        contentDigest: createContentDigest(post),
+      },
+      ...rest,
+    });
+  });
+};
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
+
   const blogPostTemplate = path.resolve(`src/templates/post.tsx`);
 
   const result = await graphql(`
     {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            frontmatter {
-              path
-            }
-          }
+      allPost {
+        nodes {
+          title
+          path
         }
       }
     }
@@ -23,15 +38,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Handle errors
   if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
+    reporter.panicOnBuild(`Error while running GraphQL query.`);
+
+    return;
   }
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.allPost.nodes.forEach(post => {
     createPage({
-      path: node.frontmatter.path,
+      path: post.path,
       component: blogPostTemplate,
       context: {}, // additional data can be passed via context
-    })
-  })
+    });
+  });
 };

@@ -6,12 +6,12 @@ import { Author } from 'components/molecules/Author/Author';
 const stories = storiesOf('Molecules/Author', module);
 
 stories.add('default', () => (
-  <Author image="https://avatars2.githubusercontent.com/u/11388211" name="Quentin Machard" username="qmachard" />
+  <Author avatar="https://avatars2.githubusercontent.com/u/11388211" name="Quentin Machard" username="qmachard" />
 ));
 
 stories.add('+ long name', () => (
   <Author
-    image="https://avatars2.githubusercontent.com/u/11388211"
+    avatar="https://avatars2.githubusercontent.com/u/11388211"
     name="Jean-Michel LongLongName"
     username="jeanmichel_longname"
   />
