@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="https://circleci.com/gh/qmachard/developers-blog">
-    <img src="https://circleci.com/gh/qmachard/developers-blog.svg?style=shield" alt="Build Status on CircleCI" />
+    <img src="https://img.shields.io/github/workflow/status/qmachard/developers-blog/test?logo=github" alt="Build Status on Github Actions" />
   </a>
   <a href="https://github.com/storybookjs/storybook/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/storybookjs/storybook.svg" alt="License" />
@@ -54,4 +54,21 @@ TODO
 
 ## 💫 Deploy
 
-TODO
+For the moment only GitHub Pages is provided by the project.
+
+### Automatic Deployment
+
+This blog is automatically deployed to Github Pages for two cases :
+
+* When issues are closed to publish new articles
+* When push on master to upgrade blog
+
+This actions are managed by GitHub Actions
+
+### Manual Deployment
+
+It's possible to manually deploy the blog with this command :
+
+```bash
+$ yarn deploy
+```
