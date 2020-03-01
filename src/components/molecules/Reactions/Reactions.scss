@@ -1,0 +1,46 @@
+.reactions {
+  display: flex;
+  width: 100%;
+  border-radius: 5px;
+  padding: 0 15px;
+  background: var(--color-background-tertiary);
+  color: var(--color-text);
+}
+
+.reactions_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--empty {
+    color: var(--color-secondary);
+  }
+
+  & + .reactions_item {
+    margin-left: 20px;
+  }
+}
+
+.reactions_number {
+  margin-left: 5px;
+}
+
+.reactions_add {
+  background: none;
+  border: none;
+  padding: 10px 0;
+
+  .icon {
+    display: block;
+    width: 24px;
+    height: 15px;
+    color: var(--color-secondary);
+    transition: color .2s;
+  }
+
+  &:hover {
+    .icon {
+      color: var(--color-text);
+    }
+  }
+}

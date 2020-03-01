@@ -1,12 +1,16 @@
 import React from 'react';
 
-import { Author, AuthorProps } from 'components/molecules/Author';
+import { Reactions as ReactionsModel } from 'models/Reaction';
 
-import './PostPage.scss';
+import { Author, AuthorProps } from 'components/molecules/Author';
 import { Tag } from 'components/atoms/Tag';
 import { Icon } from 'components/atoms/Icon';
+import { Reactions } from 'components/molecules/Reactions';
+
+import './PostPage.scss';
 
 export type PostPagePost = {
+  id: string;
   title: string;
   path: string;
   cover: string;
@@ -17,10 +21,11 @@ export type PostPagePost = {
 
 export type PostPageProps = {
   post: PostPagePost;
+  reactions: ReactionsModel;
   author?: AuthorProps;
 };
 
-export const PostPage: React.FC<PostPageProps> = ({ post, author }) => {
+export const PostPage: React.FC<PostPageProps> = ({ post, author, reactions }) => {
   return (
     <main className="post-page">
       <header className="post-page_cover" style={{ backgroundImage: `url('${post.cover}')` }}>
@@ -42,7 +47,11 @@ export const PostPage: React.FC<PostPageProps> = ({ post, author }) => {
       <div className="post-page_inner container">
         <article className="post-page_html post" dangerouslySetInnerHTML={{ __html: post.html }} />
 
-        <aside className="post-page_aside">{author && <Author {...author} />}</aside>
+        <aside className="post-page_aside">
+          <Reactions issue={post.id} reactions={reactions} />
+
+          {author && <Author {...author} />}
+        </aside>
       </div>
     </main>
   );

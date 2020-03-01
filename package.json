@@ -15,6 +15,7 @@
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "dependencies": {
+    "@octokit/graphql": "^4.3.1",
     "@octokit/rest": "^17.0.0",
     "@types/jest": "^25.1.0",
     "@types/node": "^13.5.0",

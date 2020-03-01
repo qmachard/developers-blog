@@ -10,14 +10,9 @@
   margin-right: 20px;
   border-radius: 10px;
   overflow: hidden;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   flex-shrink: 0;
-
-  @include desktop {
-    width: 90px;
-    height: 90px;
-  }
 }
 
 .author_name {
