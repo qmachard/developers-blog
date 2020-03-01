@@ -8,6 +8,7 @@ import { PostPage } from 'components/pages/PostPage/PostPage';
 const stories = storiesOf('Pages|PostPage', module);
 
 const post = {
+  id: '10',
   title: 'Concevoir une API REST',
   path: '/concevoir-une-api-rest',
   cover: 'https://images.unsplash.com/photo-1553748024-d1b27fb3f960?w=1450',
@@ -29,9 +30,5 @@ const reactions = {
   rocket: 100,
 };
 
-const selectedReactions = ['heart'];
-
-stories.add('default', () => <PostPage post={post} author={author} />);
-stories.add('with reactions', () => (
-  <PostPage post={post} author={author} reactions={reactions} selectedReactions={selectedReactions} />
-));
+stories.add('default', () => <PostPage post={post} author={author} reactions={{}} />);
+stories.add('with reactions', () => <PostPage post={post} author={author} reactions={reactions} />);

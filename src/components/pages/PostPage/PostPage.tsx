@@ -10,6 +10,7 @@ import { Reactions } from 'components/molecules/Reactions';
 import './PostPage.scss';
 
 export type PostPagePost = {
+  id: string;
   title: string;
   path: string;
   cover: string;
@@ -20,12 +21,11 @@ export type PostPagePost = {
 
 export type PostPageProps = {
   post: PostPagePost;
+  reactions: ReactionsModel;
   author?: AuthorProps;
-  reactions?: ReactionsModel;
-  selectedReactions?: string[];
 };
 
-export const PostPage: React.FC<PostPageProps> = ({ post, author, reactions, selectedReactions }) => {
+export const PostPage: React.FC<PostPageProps> = ({ post, author, reactions }) => {
   return (
     <main className="post-page">
       <header className="post-page_cover" style={{ backgroundImage: `url('${post.cover}')` }}>
@@ -48,7 +48,7 @@ export const PostPage: React.FC<PostPageProps> = ({ post, author, reactions, sel
         <article className="post-page_html post" dangerouslySetInnerHTML={{ __html: post.html }} />
 
         <aside className="post-page_aside">
-          {reactions && <Reactions reactions={reactions} selected={selectedReactions} />}
+          <Reactions issue={post.id} reactions={reactions} />
 
           {author && <Author {...author} />}
         </aside>

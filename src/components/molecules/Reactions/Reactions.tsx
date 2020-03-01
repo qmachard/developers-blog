@@ -1,27 +1,27 @@
 import * as React from 'react';
-import classNames from 'classnames';
 
 import { Reactions as ReactionsType } from '../../../models/Reaction';
 
 import './Reactions.scss';
+import { Icon } from 'components/atoms/Icon';
 
 export type ReactionsProps = {
+  issue: string;
   reactions: ReactionsType;
-  selected?: string[];
 };
 
 const availableReactions: { [key: string]: string } = {
   '+1': '👍',
-  tada: '🎉',
+  '-1': '👎',
+  laugh: '😄',
+  hooray: '🎉',
+  confused: '😕',
   heart: '❤️',
   rocket: '🚀',
+  eyes: '👀',
 };
 
 const formatReactionNumber = (number: number): string => {
-  if (!number) {
-    return '0';
-  }
-
   if (number > 99) {
     return '99+';
   }
@@ -32,21 +32,38 @@ const formatReactionNumber = (number: number): string => {
 /**
  * Reactions Component
  */
-export const Reactions: React.FC<ReactionsProps> = ({ reactions, selected = [] }) => (
-  <ul className="reactions">
-    {Object.keys(availableReactions).map((reaction: string) => {
-      const itemClassName = classNames('reactions_item', {
-        'reactions_item--selected': selected.includes(reaction),
-      });
+export const Reactions: React.FC<ReactionsProps> = ({ issue, reactions }) => {
+  const reactionsList = Object.keys(reactions);
 
-      return (
-        <li key={reaction} className={itemClassName}>
-          <button className="reactions_button">
+  return (
+    <ul className="reactions">
+      {reactionsList.length > 0 ? (
+        reactionsList.map((reaction: string) => (
+          <li
+            key={reaction}
+            aria-label={`${reactions[reaction]} pers. reacted with ${reaction} emoji`}
+            className="reactions_item"
+          >
             {availableReactions[reaction]}
-            <span className="reactions_number">{formatReactionNumber(reactions[reaction])}</span>
-          </button>
-        </li>
-      );
-    })}
-  </ul>
-);
+            <span role="presentation" className="reactions_number">
+              {formatReactionNumber(reactions[reaction])}
+            </span>
+          </li>
+        ))
+      ) : (
+        <li className="reactions_item reactions_item--empty">No reaction</li>
+      )}
+      <li className="reactions_item">
+        <a
+          aria-label="Add your reaction on GitHub"
+          href={`https://github.com/qmachard/developers-blog/issues/${issue}`}
+          className="reactions_add"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon title="Adding reaction" icon="add-emoji" />
+        </a>
+      </li>
+    </ul>
+  );
+};

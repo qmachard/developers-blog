@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import { Reactions } from './Reactions';
 
@@ -7,9 +8,10 @@ const stories = storiesOf('Molecules|Reactions', module);
 
 stories.add('default', () => (
   <Reactions
+    issue="10"
     reactions={{
       '+1': 25,
-      tada: 29,
+      hooray: 29,
       heart: 18,
       rocket: 5,
     }}
@@ -18,25 +20,24 @@ stories.add('default', () => (
 
 stories.add('with 99+', () => (
   <Reactions
+    issue="10"
     reactions={{
       '+1': 120,
-      tada: 99,
+      hooray: 99,
       heart: 567,
       rocket: 100,
     }}
   />
 ));
 
-stories.add('with selected reactions', () => (
+stories.add('with only 2 reactions', () => (
   <Reactions
+    issue="10"
     reactions={{
       '+1': 25,
-      tada: 29,
-      heart: 18,
-      rocket: 5,
+      hooray: 29,
     }}
-    selected={['tada', 'heart']}
   />
 ));
 
-stories.add('no reactions', () => <Reactions reactions={{}} />);
+stories.add('no reactions', () => <Reactions issue="10" reactions={{}} />);
