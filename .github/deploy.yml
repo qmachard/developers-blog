@@ -1,9 +1,15 @@
-name: build
+name: deploy
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - master
+  issues:
+    types:
+      - closed
 
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
