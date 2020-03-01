@@ -1,12 +1,8 @@
 name: deploy
 
 on:
-  push:
-    branches:
-      - master
   issues:
-    types:
-      - closed
+    types: [closed]
 
 jobs:
   deploy:
