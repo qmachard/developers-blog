@@ -6,6 +6,7 @@ import { Author, AuthorProps } from 'components/molecules/Author';
 import { Tag } from 'components/atoms/Tag';
 import { Icon } from 'components/atoms/Icon';
 import { Reactions } from 'components/molecules/Reactions';
+import { Footer } from 'components/organisms/Footer';
 
 import './PostPage.scss';
 
@@ -52,6 +53,8 @@ export const PostPage: React.FC<PostPageProps> = ({ post, author, reactions }) =
 
           {author && <Author {...author} />}
         </aside>
+
+        <Footer />
       </div>
     </main>
   );

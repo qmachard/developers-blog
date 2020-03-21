@@ -1,0 +1,26 @@
+.footer {
+  display: block;
+  padding: 20px;
+}
+
+.footer_credits {
+  font-size: 10px;
+  color: var(--color-secondary);
+  text-align: center;
+
+  & + .footer_credits {
+    margin-top: 10px;
+  }
+
+  .icon {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    color: var(--color-primary);
+    vertical-align: top;
+  }
+
+  a {
+    color: var(--color-primary);
+  }
+}
