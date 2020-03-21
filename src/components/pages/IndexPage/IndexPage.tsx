@@ -3,6 +3,7 @@ import { Profile, ProfileProps } from 'components/molecules/Profile';
 import { CardsList } from 'components/organisms/CardsList';
 import { PostCard, PostCardProps } from 'components/molecules/PostCard';
 import { ProjectCard, ProjectCardProps } from 'components/molecules/ProjectCard';
+import { Footer } from 'components/organisms/Footer';
 
 import './IndexPage.scss';
 
@@ -33,6 +34,8 @@ export const IndexPage: React.FC<IndexPageProps> = ({ profile, posts, projects }
             ))}
           </CardsList>
         )}
+
+        <Footer />
       </main>
     </div>
   );

@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 
-import { useReactions } from '../hooks/useReactions';
+import { useReactions } from 'hooks/useReactions';
 
 import { Layout } from 'components/global/Layout';
 import { PostPage as PostPageComponent, PostPagePost as PostPagePostType } from 'components/pages/PostPage';
-import { Reactions } from 'components/molecules/Reactions';
 
 export type PostPageProps = {
   data: {
