@@ -24,7 +24,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, li
   <Card className="project-card" link={!!link}>
     <h1 className="project-card_title card_title">
       {link ? (
-        <a href={link} className="a-block">
+        <a href={link} target="_blank" rel="noreferrer noopener" className="a-block">
           {title}
         </a>
       ) : (

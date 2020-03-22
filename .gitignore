@@ -70,3 +70,5 @@ yarn-error.log
 
 # IDE
 .idea
+
+site-config.js

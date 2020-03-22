@@ -1,8 +1,9 @@
 const path = require(`path`);
-const { fetchPosts } = require('./gatsby/services/github');
+const { fetchPosts, fetchProjects } = require('./gatsby/services/github');
 
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
   const posts = await fetchPosts();
+  const projects = await fetchProjects();
 
   posts.forEach(post => {
     const { id, ...rest } = post;
@@ -14,6 +15,20 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
       internal: {
         type: `post`,
         contentDigest: createContentDigest(post),
+      },
+      ...rest,
+    });
+  });
+
+  projects.forEach((project, index) => {
+    const { id, ...rest } = project;
+
+    createNode({
+      id: `${index}-${id}`,
+      parent: null,
+      internal: {
+        type: `project`,
+        contentDigest: createContentDigest(project),
       },
       ...rest,
     });

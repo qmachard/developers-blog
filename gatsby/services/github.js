@@ -1,6 +1,7 @@
 const { memoize } = require('../utils/memoize');
 const { transformMarkdownToHTML } = require('../utils/markdown');
 const { octokit } = require('../utils/octokit');
+const { siteConfig } = require('../../site-config');
 
 const fetchUser = memoize(async username => {
   const user = await octokit.users
@@ -20,11 +21,26 @@ const fetchUser = memoize(async username => {
 });
 exports.fetchUser = fetchUser;
 
+const fetchProjects = async () => {
+  return Promise.all(
+    siteConfig.projects.map(project => {
+      const [owner, repo] = project.split('/');
+
+      return octokit.repos
+        .get({
+          owner,
+          repo,
+        })
+        .then(project => project.data);
+    }),
+  );
+};
+
 const fetchPosts = async () => {
   const posts = await octokit.issues
     .listForRepo({
-      owner: 'qmachard',
-      repo: 'developers-blog',
+      owner: siteConfig.username,
+      repo: siteConfig.repository,
       state: 'closed',
       labels: 'blog',
     })
@@ -47,4 +63,6 @@ const fetchPosts = async () => {
     }),
   );
 };
+
 exports.fetchPosts = fetchPosts;
+exports.fetchProjects = fetchProjects;
