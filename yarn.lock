@@ -7138,9 +7138,9 @@ gh-pages@^2.2.0:
     fs-extra "^8.1.0"
     globby "^6.1.0"
 
-"gh-pinned-repos@git+ssh://git@github.com:qmachard/gh-pinned-repos.git#master":
+"gh-pinned-repos@git+https://github.com/qmachard/gh-pinned-repos.git#master":
   version "1.0.1"
-  resolved "git+ssh://git@github.com:qmachard/gh-pinned-repos.git#b1b360c3d53a878f72708caef60181e314ee9d8e"
+  resolved "git+https://github.com/qmachard/gh-pinned-repos.git#b1b360c3d53a878f72708caef60181e314ee9d8e"
   dependencies:
     cheerio "^0.20.0"
     got "^6.3.0"

@@ -35,7 +35,7 @@
     "gatsby-plugin-resolve-src": "^2.0.0",
     "gatsby-plugin-sass": "^2.1.3",
     "gatsby-plugin-typescript": "^2.1.26",
-    "gh-pinned-repos": "git+ssh://git@github.com:qmachard/gh-pinned-repos.git#master",
+    "gh-pinned-repos": "git+https://github.com/qmachard/gh-pinned-repos.git#master",
     "imports-loader": "^0.8.0",
     "markdown-it": "^10.0.0",
     "markdown-it-prism": "1.1.2",
