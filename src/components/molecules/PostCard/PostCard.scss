@@ -9,6 +9,8 @@
 }
 
 .post-card_description {
+  line-height: 1.5;
+
   .post-card_title + & {
     margin-top: 20px;
   }
