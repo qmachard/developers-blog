@@ -9,6 +9,8 @@
 }
 
 .project-card_description {
+  line-height: 1.5;
+
   .project-card_title + & {
     margin-top: 20px;
   }

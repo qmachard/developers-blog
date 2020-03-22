@@ -9,6 +9,8 @@
 }
 
 .post-card_description {
+  line-height: 1.5;
+
   .post-card_title + & {
     margin-top: 20px;
   }
@@ -16,7 +18,7 @@
 
 .post-card_image {
   position: relative;
-  background: var(--color-background) no-repeat 50% 50%;
+  background: var(--color-background-tertiary) no-repeat 50% 50%;
   background-size: cover;
   padding-bottom: 50%;
 
@@ -26,6 +28,6 @@
     left: calc(50% - 30px);
     width: 60px;
     height: 60px;
-    color: var(--color-smooth);
+    color: var(--color-background-secondary);
   }
 }

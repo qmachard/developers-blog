@@ -8,6 +8,11 @@ import { PostPage as PostPageComponent, PostPagePost as PostPagePostType } from 
 
 export type PostPageProps = {
   data: {
+    site: {
+      siteMetadata: {
+        theme: string;
+      };
+    };
     post: {
       id: string;
       title: string;
@@ -24,11 +29,18 @@ export type PostPageProps = {
   };
 };
 
-const PostPage: React.FC<PostPageProps> = ({ data: { post } }) => {
+const PostPage: React.FC<PostPageProps> = ({
+  data: {
+    site: {
+      siteMetadata: { theme },
+    },
+    post,
+  },
+}) => {
   const reactions = useReactions(post.id);
 
   return (
-    <Layout title={post.title} description={post.title}>
+    <Layout title={post.title} description={post.title} theme={theme}>
       <PostPageComponent post={post as PostPagePostType} author={post.author} reactions={reactions} />
     </Layout>
   );
@@ -36,6 +48,11 @@ const PostPage: React.FC<PostPageProps> = ({ data: { post } }) => {
 
 export const pageQuery = graphql`
   query($path: String!) {
+    site {
+      siteMetadata {
+        theme
+      }
+    }
     post(path: { eq: $path }) {
       id
       title

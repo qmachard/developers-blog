@@ -56,18 +56,19 @@
   }
 
   table {
-    background: var(--color-bg-card);
+    background: var(--color-background-tertiary);
     border-radius: 10px;
+    box-shadow: var(--shadow);
     font-size: 16px;
     width: 100%;
 
     th, td {
       padding: 10px 15px;
-      border: 1px solid var(--color-background);
     }
 
     th {
       background: var(--color-background-secondary);
+      color: white;
 
       &:first-child {
         border-top-left-radius: 10px;
@@ -80,7 +81,7 @@
   }
 
   code {
-    background: var(--color-bg-card);
+    background: var(--color-background-code);
     color: var(--color-primary);
     font-family: monospace;
     border-radius: 2px;
@@ -96,14 +97,14 @@
 
   pre, pre[class*="language-"] {
     font-family: monospace;
-    background: var(--color-bg-card);
+    background: var(--color-background-code);
     padding: 10px;
     border-radius: 10px;
     margin-top: 2em;
     font-size: 14px;
 
     code {
-      color: var(--color-text);
+      color: white;
 
       &:before,
       &:after {

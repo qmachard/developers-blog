@@ -1,6 +1,7 @@
 .card {
   display: inline-block;
-  background: var(--color-bg-card);
+  position: relative;
+  background: var(--color-background-tertiary);
   border-radius: 5px;
   color: var(--color-text);
   box-shadow: var(--shadow);

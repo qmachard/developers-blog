@@ -10,18 +10,25 @@
   --font-bold: #{$font-bold};
   --font-size-normal: 14px;
   --font-size-title-1: 50px;
-  --color-background: #0A0A0A;
-  --color-background-secondary: #303F9F;
-  --color-background-tertiary: #141414;
-  --color-background-tertiary-hover: #363636;
-  --color-background-inverted: #fff;
-  --color-text: #fff;
-  --color-text-inverted: #000;
-  --color-primary: #7681ca;
-  --color-secondary: #aaaaaa;
-  --color-bg-card: rgb(20, 20, 20);
-  --color-smooth: #e2e2e2;
-  --color-dark: #0a0a0a;
+  --color-background: #{$color-pepper-100};
+  --color-background-secondary: #{$color-secondary};
+  --color-background-tertiary: #{$color-pepper-90};
+  --color-background-tertiary-hover: #{$color-pepper-50};
+  --color-background-inverted: #{$color-salt-10};
+  --color-background-code: #{$color-pepper-80};
+  --color-text: #{$color-salt-10};
+  --color-text-inverted: #{$color-pepper-100};
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-salt-40};
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07);
   --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07);
+  --color-overlay: rgba(0, 0, 0, .4);
+}
+
+[data-theme="light"] {
+  --color-background: #{$color-salt-10};
+  --color-background-tertiary: #{$color-salt-10};
+  --color-text: #{$color-pepper-80};
+  --color-secondary: #{$color-pepper-50};
+  --color-overlay: rgba(255, 255, 255, .4);
 }
