@@ -2,10 +2,10 @@ const path = require(`path`);
 const { fetchPosts, fetchProjects } = require('./gatsby/services/github');
 
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
-  const { GATSBY_GH_USERNAME, GATSBY_GH_REPOSITORY } = process.env;
+  const { GATSBY_GH_ORGANISATION, GATSBY_GH_REPOSITORY } = process.env;
 
-  const posts = await fetchPosts(GATSBY_GH_USERNAME, GATSBY_GH_REPOSITORY);
-  const projects = await fetchProjects(GATSBY_GH_USERNAME);
+  const posts = await fetchPosts(GATSBY_GH_ORGANISATION, GATSBY_GH_REPOSITORY);
+  const projects = await fetchProjects(GATSBY_GH_ORGANISATION);
 
   posts.forEach(post => {
     const { id, ...rest } = post;

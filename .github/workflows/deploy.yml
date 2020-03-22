@@ -24,6 +24,9 @@ jobs:
 
       - run: yarn install
       - run: yarn gatsby build --prefix-paths
+        env:
+          GATSBY_GH_ORGANISATION: ${{ secrets.GH_ORGANISATION }}
+          GATSBY_GH_REPOSITORY: ${{ secrets.GH_REPOSITORY }}
       - run: ./.github/bin/deploy.sh
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
