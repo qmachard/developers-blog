@@ -12,6 +12,7 @@ type IndexPageProps = {
 const IndexPage: React.FC<IndexPageProps> = ({
   data: {
     allPost: { nodes: posts },
+    allProject: { nodes: projects },
   },
 }) => {
   const profile: ProfileProps = {
@@ -34,7 +35,15 @@ const IndexPage: React.FC<IndexPageProps> = ({
           link: post.path,
         }))}
         profile={profile}
-        projects={[]}
+        projects={projects.map((project: any) => ({
+          id: project.id,
+          title: project.full_name,
+          description: project.description,
+          link: project.homepage || project.html_url,
+          language: project.language,
+          forks: project.forks_count,
+          stars: project.stargazers_count,
+        }))}
       />
     </Layout>
   );
@@ -49,6 +58,19 @@ export const pageQuery = graphql`
         path
         cover
         excerpt
+      }
+    }
+    allProject(filter: { fork: { eq: false } }) {
+      nodes {
+        id
+        full_name
+        fork
+        language
+        stargazers_count
+        forks_count
+        description
+        html_url
+        homepage
       }
     }
   }
