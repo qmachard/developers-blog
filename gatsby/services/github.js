@@ -1,7 +1,8 @@
+const ghPinnedRepos = require('gh-pinned-repos');
+
 const { memoize } = require('../utils/memoize');
 const { transformMarkdownToHTML } = require('../utils/markdown');
 const { octokit } = require('../utils/octokit');
-const { siteConfig } = require('../../site-config');
 
 const fetchUser = memoize(async username => {
   const user = await octokit.users
@@ -21,26 +22,32 @@ const fetchUser = memoize(async username => {
 });
 exports.fetchUser = fetchUser;
 
-const fetchProjects = async () => {
-  return Promise.all(
-    siteConfig.projects.map(project => {
-      const [owner, repo] = project.split('/');
+const fetchProject = (username, repository) => {
+  return octokit.repos
+    .get({
+      owner: username,
+      repo: repository,
+    })
+    .then(project => project.data);
+};
 
-      return octokit.repos
-        .get({
-          owner,
-          repo,
-        })
-        .then(project => project.data);
+const fetchProjects = async username => {
+  const projects = await ghPinnedRepos(username);
+
+  return Promise.all(
+    projects.map(project => {
+      const [username, repository] = project.split('/');
+
+      return fetchProject(username, repository);
     }),
   );
 };
 
-const fetchPosts = async () => {
+const fetchPosts = async (username, repository) => {
   const posts = await octokit.issues
     .listForRepo({
-      owner: siteConfig.username,
-      repo: siteConfig.repository,
+      owner: username,
+      repo: repository,
       state: 'closed',
       labels: 'blog',
     })
