@@ -12,7 +12,7 @@ module.exports = {
     title: `Developer's Blog`,
     description: `Every devs need a simple blog`,
     author: `@qmachard`,
-    theme: `dark`,
+    theme: process.env.GATSBY_SITE_THEME || 'dark',
   },
   pathPrefix: '/developers-blog',
   plugins: [
