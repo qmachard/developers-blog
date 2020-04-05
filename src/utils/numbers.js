@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+
 /**
  * Format number to french
  *
@@ -7,11 +9,8 @@
  *
  * @return {string}
  */
-const formatNumber = (num) =>
+export const formatNumber = (num) =>
   num
     .toString()
     .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1\u00a0')
     .replace('.', ',');
-
-// eslint-disable-next-line import/prefer-default-export
-export { formatNumber };

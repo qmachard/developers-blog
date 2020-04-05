@@ -1,4 +1,4 @@
-import { formatNumber } from './numbers';
+const { formatNumber } = require('./numbers');
 
 test('formatNumber(0) -> "0"', () => {
   expect(formatNumber(0)).toBe('0');

@@ -42,12 +42,14 @@
     "yaml-front-matter": "^4.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
     "@storybook/addon-actions": "^5.3.9",
     "@storybook/addon-options": "^5.1.9",
     "@storybook/addon-viewport": "^5.3.13",
     "@storybook/react": "^5.2.5",
     "@typescript-eslint/parser": "^2.26.0",
+    "babel-jest": "^25.2.6",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.1.0",
     "eslint": "^6.8.0",
