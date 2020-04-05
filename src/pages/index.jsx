@@ -1,15 +1,11 @@
-import * as React from 'react';
+import React from 'react';
+import * as PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import { Layout } from 'components/global/Layout';
-import { IndexPage as IndexPageComponent } from 'components/pages/IndexPage';
-import { ProfileProps } from 'components/molecules/Profile';
+import Layout from '../components/global/Layout';
+import IndexPageComponent from '../components/pages/IndexPage';
 
-type IndexPageProps = {
-  data: any;
-};
-
-const IndexPage: React.FC<IndexPageProps> = ({
+const IndexPage = ({
   data: {
     site: {
       siteMetadata: { theme },
@@ -18,7 +14,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
     allProject: { nodes: projects },
   },
 }) => {
-  const profile: ProfileProps = {
+  const profile = {
     username: 'qmachard',
     name: 'Quentin Machard',
     image: 'https://avatars2.githubusercontent.com/u/11388211',
@@ -30,7 +26,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
   return (
     <Layout className="index-page" title="Developers Blog" description="Lorem ipsum" theme={theme}>
       <IndexPageComponent
-        posts={posts.map((post: any) => ({
+        posts={posts.map((post) => ({
           id: post.id,
           description: post.excerpt,
           title: post.title,
@@ -38,7 +34,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
           link: post.path,
         }))}
         profile={profile}
-        projects={projects.map((project: any) => ({
+        projects={projects.map((project) => ({
           id: project.id,
           title: project.full_name,
           description: project.description,
@@ -83,5 +79,37 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        theme: PropTypes.string,
+      }),
+    }),
+    allPost: PropTypes.shape({
+      nodes: PropTypes.shape({
+        id: PropTypes.string,
+        title: PropTypes.string,
+        path: PropTypes.string,
+        cover: PropTypes.string,
+        excerpt: PropTypes.string,
+      }),
+    }),
+    allProject: PropTypes.shape({
+      nodes: PropTypes.shape({
+        id: PropTypes.string,
+        full_name: PropTypes.string,
+        fork: PropTypes.string,
+        language: PropTypes.string,
+        stargazers_count: PropTypes.number,
+        forks_count: PropTypes.number,
+        description: PropTypes.string,
+        html_url: PropTypes.string,
+        homepage: PropTypes.string,
+      }),
+    }),
+  }).isRequired,
+};
 
 export default IndexPage;

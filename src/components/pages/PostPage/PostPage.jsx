@@ -1,11 +1,11 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
 
-import Author from 'components/molecules/Author';
-import Tag from 'components/atoms/Tag';
-import Icon from 'components/atoms/Icon';
-import Reactions from 'components/molecules/Reactions';
-import Footer from 'components/organisms/Footer';
+import Tag from '../../atoms/Tag';
+import Icon from '../../atoms/Icon';
+import Author from '../../molecules/Author';
+import Reactions from '../../molecules/Reactions';
+import Footer from '../../organisms/Footer';
 
 import './PostPage.scss';
 
@@ -18,7 +18,7 @@ const PostPage = ({ post, author, reactions }) => {
           {post.excerpt && <p className="post-page_excerpt">{post.excerpt}</p>}
           {post.tags && (
             <ul className="post-page_tags">
-              {post.tags.map(tag => (
+              {post.tags.map((tag) => (
                 <li key={`tag-${tag}`} className="post-page_tag">
                   <Tag icon={<Icon icon="hashtag" title="tag: " />}>{tag}</Tag>
                 </li>

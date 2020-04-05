@@ -11,7 +11,7 @@ const stories = storiesOf('Atoms|Icon', module);
 
 const xmlhttp = new XMLHttpRequest();
 
-xmlhttp.onload = function() {
+xmlhttp.onload = () => {
   const parser = new DOMParser();
   const svg = parser.parseFromString(xmlhttp.responseText, 'image/svg+xml');
 
@@ -19,7 +19,7 @@ xmlhttp.onload = function() {
 
   stories.add('list', () => (
     <ul className="examples">
-      {iconsList.map(item => (
+      {iconsList.map((item) => (
         <li key={item.id} className="example">
           <span className="example_view">
             <Icon icon={item.id} title={`Icone ${item.id}`} />

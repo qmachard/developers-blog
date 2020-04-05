@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import IndexPage from 'components/pages/IndexPage';
+import IndexPage from './IndexPage';
 
 const stories = storiesOf('Pages|IndexPage', module);
 
@@ -43,7 +43,7 @@ const projects = [
     link: '#',
   },
   {
-    id: '1',
+    id: '2',
     title: 'developers-blog',
     description: 'Every developer needs a simple blog',
     language: 'Javascript',

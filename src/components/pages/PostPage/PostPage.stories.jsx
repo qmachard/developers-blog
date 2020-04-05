@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import samplePost from './sample-post';
 
-import PostPage from 'components/pages/PostPage/PostPage';
+import PostPage from './PostPage';
 
 const stories = storiesOf('Pages|PostPage', module);
 

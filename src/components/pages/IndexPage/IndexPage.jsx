@@ -12,21 +12,43 @@ import './IndexPage.scss';
 const IndexPage = ({ profile, posts, projects }) => {
   return (
     <div className="index-page">
-      <Profile {...profile} />
+      <Profile
+        username={profile.username}
+        name={profile.name}
+        background={profile.background}
+        image={profile.image}
+        location={profile.location}
+        profession={profile.profession}
+        website={profile.website}
+      />
 
       <main className="index-page_inner">
         {posts.length > 0 && (
           <CardsList title="Posts.">
-            {posts.map(post => (
-              <PostCard key={`post-${post.id}`} {...post} />
+            {posts.map((post) => (
+              <PostCard
+                key={`post-${post.id}`}
+                title={post.title}
+                image={post.image}
+                description={post.description}
+                link={post.link}
+              />
             ))}
           </CardsList>
         )}
 
         {projects.length > 0 && (
           <CardsList title="Projects.">
-            {projects.map(project => (
-              <ProjectCard key={`project-${project.id}`} {...project} />
+            {projects.map((project) => (
+              <ProjectCard
+                key={`project-${project.id}`}
+                description={project.description}
+                title={project.title}
+                language={project.language}
+                link={project.link}
+                forks={project.forks}
+                stars={project.stars}
+              />
             ))}
           </CardsList>
         )}
