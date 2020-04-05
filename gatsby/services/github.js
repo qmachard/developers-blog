@@ -4,12 +4,12 @@ const { memoize } = require('../utils/memoize');
 const { transformMarkdownToHTML } = require('../utils/markdown');
 const { octokit } = require('../utils/octokit');
 
-const fetchUser = memoize(async username => {
+const fetchUser = memoize(async (username) => {
   const user = await octokit.users
     .getByUsername({
       username,
     })
-    .then(results => results.data);
+    .then((results) => results.data);
 
   return {
     id: user.id,
@@ -28,15 +28,15 @@ const fetchProject = (username, repository) => {
       owner: username,
       repo: repository,
     })
-    .then(project => project.data);
+    .then((project) => project.data);
 };
 
-const fetchProjects = async username => {
+const fetchProjects = async (username) => {
   const projects = await ghPinnedRepos(username);
 
   return Promise.all(
-    projects.map(project => {
-      const [username, repository] = project.split('/');
+    projects.map((project) => {
+      const repository = project.split('/')[1];
 
       return fetchProject(username, repository);
     }),
@@ -51,10 +51,10 @@ const fetchPosts = async (username, repository) => {
       state: 'closed',
       labels: 'blog',
     })
-    .then(results => results.data);
+    .then((results) => results.data);
 
   return Promise.all(
-    posts.map(async post => {
+    posts.map(async (post) => {
       const { html, cover, excerpt, slug } = transformMarkdownToHTML(post.body);
 
       return {
@@ -65,7 +65,7 @@ const fetchPosts = async (username, repository) => {
         excerpt: excerpt || '',
         cover: cover || '',
         html,
-        tags: post.labels.filter(label => label.name !== 'blog').map(label => label.name),
+        tags: post.labels.filter((label) => label.name !== 'blog').map((label) => label.name),
       };
     }),
   );

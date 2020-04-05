@@ -7,7 +7,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
   const posts = await fetchPosts(GATSBY_GH_ORGANISATION, GATSBY_GH_REPOSITORY);
   const projects = await fetchProjects(GATSBY_GH_ORGANISATION);
 
-  posts.forEach(post => {
+  posts.forEach((post) => {
     const { id, ...rest } = post;
 
     createNode({
@@ -40,7 +40,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
 
-  const blogPostTemplate = path.resolve(`src/templates/post.tsx`);
+  const blogPostTemplate = path.resolve(`src/templates/post.jsx`);
 
   const result = await graphql(`
     {
@@ -60,7 +60,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
 
-  result.data.allPost.nodes.forEach(post => {
+  result.data.allPost.nodes.forEach((post) => {
     createPage({
       path: post.path,
       component: blogPostTemplate,

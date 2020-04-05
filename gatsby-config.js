@@ -17,7 +17,6 @@ module.exports = {
   pathPrefix: '/developers-blog',
   plugins: [
     `gatsby-plugin-sass`,
-    `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-force-file-loader`,
       options: {

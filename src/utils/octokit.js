@@ -1,7 +1,8 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable no-console */
-const { Octokit } = require('@octokit/rest');
+import { Octokit } from '@octokit/rest';
 
-exports.octokit = new Octokit({
+export const octokit = new Octokit({
   timeZone: 'Europe/Paris',
   baseUrl: 'https://api.github.com',
   log: {
