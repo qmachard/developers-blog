@@ -36,9 +36,9 @@ const fetchProjects = async (username) => {
 
   return Promise.all(
     projects.map((project) => {
-      const repository = project.split('/')[1];
+      const [organisation, repository] = project.split('/');
 
-      return fetchProject(username, repository);
+      return fetchProject(organisation, repository);
     }),
   );
 };
