@@ -1,8 +1,8 @@
 import React from 'react';
+import { Hash } from 'react-feather';
 import * as PropTypes from 'prop-types';
 
 import Tag from '../../atoms/Tag';
-import Icon from '../../atoms/Icon';
 import Author from '../../molecules/Author';
 import Reactions from '../../molecules/Reactions';
 import Footer from '../../organisms/Footer';
@@ -20,7 +20,7 @@ const PostPage = ({ post, author, reactions }) => {
             <ul className="post-page_tags">
               {post.tags.map((tag) => (
                 <li key={`tag-${tag}`} className="post-page_tag">
-                  <Tag icon={<Icon icon="hashtag" title="tag: " />}>{tag}</Tag>
+                  <Tag className="icon" icon={<Hash className="icon" aria-label="tag: " />}>{tag}</Tag>
                 </li>
               ))}
             </ul>

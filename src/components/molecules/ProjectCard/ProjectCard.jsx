@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Code, GitPullRequest, Star } from "react-feather";
 
 import { formatNumber } from '../../../utils/numbers';
 
 import Card from '../../atoms/Card';
 import Tag from '../../atoms/Tag';
-import Icon from '../../atoms/Icon';
 
 import './ProjectCard.scss';
 
@@ -26,9 +26,9 @@ const ProjectCard = ({ title, description, link, language, forks, stars }) => (
     <p className="project-card_description card_description">{description}</p>
 
     <div className="project-card_tags">
-      <Tag icon={<Icon icon="code" title="Language" />}>{language}</Tag>
-      {forks !== 0 && <Tag icon={<Icon icon="fork" title="Forks" />}>{formatNumber(forks)}</Tag>}
-      {stars !== 0 && <Tag icon={<Icon icon="star" title="Stars" />}>{formatNumber(stars)}</Tag>}
+      <Tag icon={<Code className="icon" aria-label="Language" />}>{language}</Tag>
+      {forks !== 0 && <Tag icon={<GitPullRequest className="icon" aria-label="Forks" />}>{formatNumber(forks)}</Tag>}
+      {stars !== 0 && <Tag icon={<Star className="icon" aria-label="Stars" />}>{formatNumber(stars)}</Tag>}
     </div>
   </Card>
 );

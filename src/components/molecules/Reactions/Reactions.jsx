@@ -1,9 +1,8 @@
 import React from 'react';
+import {FileText, Smile} from "react-feather";
 import * as PropTypes from 'prop-types';
 
 import './Reactions.scss';
-
-import Icon from '../../atoms/Icon';
 
 const availableReactions = {
   '+1': '👍',
@@ -56,7 +55,7 @@ const Reactions = ({ issue, reactions }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Icon title="Adding reaction" icon="add-emoji" />
+          <Smile className="icon" />
         </a>
       </li>
     </ul>

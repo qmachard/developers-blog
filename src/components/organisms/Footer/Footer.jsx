@@ -1,6 +1,5 @@
 import React from 'react';
-
-import Icon from '../../atoms/Icon';
+import {FileText, Heart} from "react-feather";
 
 import './Footer.scss';
 
@@ -8,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <p className="footer_credits">
-        Made with <Icon title="love" icon="heart" /> by Human on Earth
+        Made with <Heart className="icon" aria-label="love" /> by Human on Earth
       </p>
       <p className="footer_credits">
         Created by{' '}
