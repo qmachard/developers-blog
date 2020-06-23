@@ -1,0 +1,92 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.post {
+  position: relative;
+  width: 100%;
+}
+
+.post_cover {
+  display: flex;
+  position: relative;
+  width: 100%;
+  padding-top: 60px;
+  min-height: 300px;
+  align-items: flex-end;
+  justify-content: center;
+  background-size: cover;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: var(--color-overlay);
+    z-index: 0;
+  }
+
+  @include desktop {
+    min-height: 400px;
+  }
+}
+
+.post_cover_inner {
+  display: block;
+  position: relative;
+  z-index: 2;
+  padding: 30px 20px;
+
+  @include desktop {
+    padding: 60px 40px;
+  }
+}
+
+.post_title {
+  margin-bottom: 15px;
+}
+
+.post_excerpt {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.post_inner {
+  padding: 30px 20px;
+
+  @include desktop {
+    padding: 60px 40px;
+  }
+}
+
+.post_tags {
+  display: block;
+}
+
+.post_tag {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 30px;
+}
+
+.post_back {
+  position: absolute;
+  z-index: 10;
+  top: 20px;
+  left: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, .3);
+  transition: background .2s;
+
+  &:hover {
+    background: var(--color-background-secondary);
+  }
+
+  @include desktop {
+    top: 40px;
+    left: 40px;
+  }
+}

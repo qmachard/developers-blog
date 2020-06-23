@@ -17,9 +17,18 @@ const PostPage = ({
 }) => {
   const reactions = useReactions(post.id);
 
+  const profile = {
+    username: 'qmachard',
+    name: 'Quentin Machard',
+    image: 'https://avatars2.githubusercontent.com/u/11388211',
+    background: 'https://images.unsplash.com/photo-1550647134-b512b01d62a2?h=1500',
+    profession: 'Front-End Developer',
+    location: 'Rennes, France',
+  };
+
   return (
     <Layout title={post.title} description={post.title} theme={theme}>
-      <PostPageComponent post={post} author={post.author} reactions={reactions} />
+      <PostPageComponent profile={profile} post={post} author={post.author} reactions={reactions} />
     </Layout>
   );
 };

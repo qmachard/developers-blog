@@ -5,6 +5,15 @@ import samplePost from './sample-post';
 
 import PostPage from './PostPage';
 
+const profile = {
+  username: 'qmachard',
+  name: 'Quentin Machard',
+  image: 'https://avatars2.githubusercontent.com/u/11388211',
+  background: 'https://images.unsplash.com/photo-1550647134-b512b01d62a2?h=1500',
+  profession: 'Front-End Developer',
+  location: 'Rennes, France',
+};
+
 const stories = storiesOf('Pages|PostPage', module);
 
 const post = {
@@ -17,12 +26,6 @@ const post = {
   tags: ['css', 'html', 'accessibility'],
 };
 
-const author = {
-  avatar: 'https://avatars2.githubusercontent.com/u/11388211',
-  name: 'Quentin Machard',
-  username: 'qmachard',
-};
-
 const reactions = {
   '+1': 100,
   heart: 100,
@@ -30,5 +33,5 @@ const reactions = {
   rocket: 100,
 };
 
-stories.add('default', () => <PostPage post={post} author={author} reactions={{}} />);
-stories.add('with reactions', () => <PostPage post={post} author={author} reactions={reactions} />);
+stories.add('default', () => <PostPage profile={profile} post={post} reactions={{}} />);
+stories.add('with reactions', () => <PostPage profile={profile} post={post} reactions={reactions} />);
