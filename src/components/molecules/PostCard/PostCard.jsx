@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FileText } from "react-feather";
+
 import { Link } from 'gatsby';
 
 import Card from '../../atoms/Card';
-import Icon from '../../atoms/Icon';
-
 import './PostCard.scss';
 
 /**
@@ -13,7 +13,7 @@ import './PostCard.scss';
 const PostCard = ({ title, description, image, link }) => (
   <Card className="post-card" link={!!link} padding={false}>
     <div className="post-card_image" style={{ backgroundImage: image ? `url(${image})` : undefined }}>
-      {!image ? <Icon title="article" icon="newspaper" /> : null}
+      {!image ? <FileText className="icon" /> : null}
     </div>
     <div className="post-card_inner">
       <h1 className="post-card_title card_title">

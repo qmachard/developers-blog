@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link, MapPin } from "react-feather";
 
 import Tag from '../../atoms/Tag';
-import Icon from '../../atoms/Icon';
 
 import './Profile.scss';
 
@@ -22,7 +22,7 @@ const Profile = ({ image, name, username, background, profession, website, locat
       <ul className="profile_tags">
         {website && (
           <li className="profile_tag">
-            <Tag icon={<Icon icon="website" title="Website" />}>
+            <Tag icon={<Link className="icon" />}>
               <a href={website}>{website}</a>
             </Tag>
           </li>
@@ -30,7 +30,7 @@ const Profile = ({ image, name, username, background, profession, website, locat
 
         {location && (
           <li className="profile_tag">
-            <Tag icon={<Icon icon="location" title="Location" />}>{location}</Tag>
+            <Tag icon={<MapPin className="icon" />}>{location}</Tag>
           </li>
         )}
       </ul>

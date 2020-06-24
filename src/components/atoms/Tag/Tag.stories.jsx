@@ -1,14 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { Code } from "react-feather";
 
 import Tag from './Tag';
-import Icon from '../Icon';
 
 const stories = storiesOf('Atoms|Tag', module);
 
 stories.add('default', () => <Tag>HTML / CSS</Tag>);
 stories.add('+ with icon', () => {
-  const icon = <Icon icon="code" title="Language" />;
+  const icon = <Code className="icon" aria-label="Language" />;
 
   return <Tag icon={icon}>Javascript</Tag>;
 });

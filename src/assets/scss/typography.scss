@@ -1,8 +1,13 @@
 @import 'variables';
+@import 'mixins';
 
 .title-1 {
   font-family: var(--font-family-title);
-  font-size: var(--font-size-title-1);
+  font-size: var(--font-size-title-2);
   font-weight: var(--font-bold);
   margin-bottom: 50px;
+
+  @include desktop {
+    font-size: var(--font-size-title-1);
+  }
 }
