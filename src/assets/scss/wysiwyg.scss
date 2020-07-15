@@ -1,8 +1,10 @@
 @import '~prismjs/themes/prism-tomorrow.css';
 
+@import 'mixins';
+
 .wysiwyg {
-  font-size: 20px;
-  line-height: 1.58;
+  font-size: 16px;
+  line-height: 1.5;
   font-family: var(--font-family-serif);
   font-weight: var(--font-normal);
 
@@ -17,6 +19,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-title);
+    line-height: 1.2;
 
     & + p,
     & + ul {
@@ -133,10 +136,10 @@
       content: '';
       display: block;
       position: absolute;
-      top: 12px;
+      top: 8px;
       left: 0;
-      height: 8px;
-      width: 8px;
+      height: 6px;
+      width: 6px;
       background: var(--color-primary);
       border: 1px solid var(--color-primary);
       border-radius: 8px;
@@ -154,6 +157,19 @@
           background: var(--color-primary);
           border-radius: 0;
         }
+      }
+    }
+  }
+
+  @include desktop {
+    font-size: 20px;
+    line-height: 1.58;
+
+    li {
+      &:before {
+        top: 12px;
+        height: 8px;
+        width: 8px;
       }
     }
   }
