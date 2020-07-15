@@ -1,17 +1,28 @@
 import { Helmet } from 'react-helmet';
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import config from '../../../../config';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const Seo = ({ title, description, image, publishedTime, author }) => {
-  console.log({ title, description, image, publishedTime, author });
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          author
+        }
+      }
+    }
+  `);
+
   const renderTitle = () => {
     if (title) {
-      return `${title} | ${config.title}`;
+      return `${title} | ${siteMetadata.title}`;
     }
 
-    return config.title;
+    return siteMetadata.title;
   };
 
   return (
@@ -23,7 +34,7 @@ const Seo = ({ title, description, image, publishedTime, author }) => {
       {image && <meta property="og:image" content={image} />}
       {image && <meta property="og:image:type" content="image/jpg" />}
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
-      <meta property="article:author" content={author || config.author} />
+      <meta property="article:author" content={author || siteMetadata.author} />
       <meta name="twitter:card" content="summary" />
       {title && <meta name="twitter:title" content={title} />}
     </Helmet>

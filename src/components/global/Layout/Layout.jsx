@@ -3,20 +3,18 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import classNames from 'classnames';
 
-import config from '../../../../config';
-
 import './Layout.scss';
 
 /**
  * Layout Component
  */
-const Layout = ({ className, children }) => {
+const Layout = ({ theme, className, children }) => {
   const componentClassNames = classNames('layout', className);
 
   return (
     <div className={componentClassNames}>
       <Helmet>
-        <html lang="fr" data-theme={config.theme} />
+        <html lang="fr" data-theme={theme} />
       </Helmet>
 
       {children}
@@ -25,11 +23,13 @@ const Layout = ({ className, children }) => {
 };
 
 Layout.propTypes = {
+  theme: PropTypes.oneOf(['dark', 'light']),
   className: PropTypes.string,
 };
 
 Layout.defaultProps = {
   className: null,
+  theme: 'dark',
 };
 
 export default Layout;

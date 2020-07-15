@@ -7,10 +7,13 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const config = require('./config');
-
 module.exports = {
-  siteMetadata: config,
+  siteMetadata: {
+    title: `Developer's Blog`,
+    description: `Every devs need a simple blog`,
+    author: `@qmachard`,
+    theme: 'dark',
+  },
   pathPrefix: '/developers-blog',
   plugins: [
     `gatsby-plugin-sass`,

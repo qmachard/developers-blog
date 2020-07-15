@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/global/Layout';
 import IndexPageComponent from '../components/pages/IndexPage';
-import Seo from '../components/global/Seo';
+import Seo from '../containers/Seo';
 
 const IndexPage = ({
   data: {

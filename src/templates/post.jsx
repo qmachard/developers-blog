@@ -6,7 +6,7 @@ import { useReactions } from '../hooks/useReactions';
 
 import Layout from '../components/global/Layout';
 import PostPageComponent from '../components/pages/PostPage';
-import Seo from '../components/global/Seo';
+import Seo from '../containers/Seo';
 
 const PostPage = ({
   data: {
