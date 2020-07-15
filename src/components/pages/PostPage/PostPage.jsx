@@ -9,17 +9,15 @@ import './PostPage.scss';
 
 const PostPage = ({ post, reactions }) => {
   return (
-    <div className="post-page">
-      <main className="post-page_inner">
-        <Post cover={post.cover} html={post.html} title={post.title} tags={post.tags} />
+    <main className="post-page_inner">
+      <Post cover={post.cover} html={post.html} title={post.title} tags={post.tags} />
 
-        <aside className="post-page_aside">
-          <Reactions issue={post.id} reactions={reactions} />
-        </aside>
+      <aside className="post-page_aside">
+        <Reactions issue={post.id} reactions={reactions} />
+      </aside>
 
-        <Footer />
-      </main>
-    </div>
+      <Footer />
+    </main>
   );
 };
 

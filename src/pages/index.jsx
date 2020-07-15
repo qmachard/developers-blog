@@ -17,7 +17,7 @@ const IndexPage = ({
   },
 }) => {
   return (
-    <Layout theme={theme} className="index-page">
+    <Layout theme={theme}>
       <Seo />
 
       <Profile />

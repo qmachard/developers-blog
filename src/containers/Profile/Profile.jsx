@@ -14,6 +14,7 @@ const Profile = () => {
         website
         username
         background
+        twitter
       }
     }
   `);
@@ -22,8 +23,12 @@ const Profile = () => {
     <ProfileComponent
       username={profile.username}
       name={profile.name}
+      bio={profile.bio}
       image={profile.image}
       background={profile.background}
+      location={profile.location}
+      website={profile.website}
+      twitter={profile.twitter}
     />
   );
 };

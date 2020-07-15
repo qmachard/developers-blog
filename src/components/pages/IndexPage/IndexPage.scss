@@ -1,21 +1,6 @@
 @import '../../../assets/scss/mixins';
 
-.index-page {
-  .profile {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60vh;
-  }
-
-  @include desktop {
-    .profile {
-      height: 100%;
-      width: 30vw;
-    }
-  }
-}
+.index-page {}
 
 .index-page_inner {
   display: block;

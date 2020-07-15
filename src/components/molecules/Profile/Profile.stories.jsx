@@ -12,14 +12,15 @@ stories.add('default', () => (
     name="Quentin Machard"
     username="qmachard"
     image="https://avatars2.githubusercontent.com/u/11388211"
-    profession="Front-End Developer"
+    bio="This is an awesome bio"
     website="http://www.quentinmachard.fr/"
     location="Rennes, France"
     background={background}
+    twitter="quentinmachard"
   />
 ));
 
-stories.add('without profession', () => (
+stories.add('without bio', () => (
   <Profile
     name="Quentin Machard"
     username="qmachard"
@@ -35,7 +36,7 @@ stories.add('without website', () => (
     name="Quentin Machard"
     username="qmachard"
     image="https://avatars2.githubusercontent.com/u/11388211"
-    profession="Front-End Developer"
+    bio="This is an awesome bio"
     location="Rennes, France"
     background={background}
   />
@@ -46,7 +47,7 @@ stories.add('without location', () => (
     name="Quentin Machard"
     username="qmachard"
     image="https://avatars2.githubusercontent.com/u/11388211"
-    profession="Front-End Developer"
+    bio="This is an awesome bio"
     background={background}
   />
 ));
@@ -56,7 +57,7 @@ stories.add('without background', () => (
     name="Quentin Machard"
     username="qmachard"
     image="https://avatars2.githubusercontent.com/u/11388211"
-    profession="Front-End Developer"
+    bio="This is an awesome bio"
     website="http://www.quentinmachard.fr/"
     location="Rennes, France"
   />

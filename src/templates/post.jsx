@@ -20,7 +20,7 @@ const PostPage = ({
   const reactions = useReactions(post.id);
 
   return (
-    <Layout title={post.title} description={post.excerpt} theme={theme}>
+    <Layout theme={theme} className="post-page">
       <Seo
         title={post.title}
         description={post.excerpt}

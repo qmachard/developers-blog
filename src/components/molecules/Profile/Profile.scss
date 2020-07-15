@@ -9,12 +9,12 @@
   height: 100%;
   width: 100%;
   padding: 20px;
-  background: var(--color-background) center center no-repeat;
+  background: var(--color-background-tertiary) center center no-repeat;
   background-size: cover;
   color: var(--color-text);
   text-align: center;
 
-  &:before {
+  &--with-background:before {
     content: '';
     position: absolute;
     top: 0;
@@ -52,10 +52,10 @@
 .profile_name {
   margin-top: 30px;
   font-weight: var(--font-semibold);
-  font-size: 16px;
+  font-size: 20px;
 
   @include desktop {
-    font-size: 24px;
+    font-size: 26px;
   }
 }
 
@@ -68,13 +68,14 @@
   }
 }
 
-.profile_profession {
+.profile_bio {
   margin-top: 30px;
   font-weight: var(--font-semibold);
-  font-size: 20px;
+  font-size: 16px;
+  line-height: 1.5;
 
   @include desktop {
-    font-size: 26px;
+    font-size: 18px;
   }
 }
 
