@@ -4,6 +4,8 @@
 .post {
   position: relative;
   width: 100%;
+
+
 }
 
 .post_cover {
@@ -72,21 +74,42 @@
 }
 
 .post_back {
-  position: absolute;
+  position: fixed;
   z-index: 10;
+  padding: 5px;
   top: 20px;
   left: 20px;
-  padding: 5px;
   border-radius: 5px;
-  background: rgba(0, 0, 0, .3);
+  background: var(--color-overlay);
+  backdrop-filter: blur(5px);
   transition: background .2s;
 
-  &:hover {
-    background: var(--color-background-secondary);
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: var(--color-bg);
+    opacity: 0.7;
   }
 
-  @include desktop {
+  &:hover,
+  &:focus {
+    background: var(--color-primary);
+
+  }
+
+  @include tablet {
+    padding: 10px;
     top: 40px;
     left: 40px;
   }
+
+  //@include desktop {
+  //  top: 40px;
+  //  left: calc(30vw + 90px);
+  //}
 }

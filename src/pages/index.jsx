@@ -4,12 +4,10 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/global/Layout';
 import IndexPageComponent from '../components/pages/IndexPage';
+import Seo from '../components/global/Seo';
 
 const IndexPage = ({
   data: {
-    site: {
-      siteMetadata: { theme },
-    },
     allPost: { nodes: posts },
     allProject: { nodes: projects },
   },
@@ -24,7 +22,8 @@ const IndexPage = ({
   };
 
   return (
-    <Layout className="index-page" title="Developers Blog" description="Lorem ipsum" theme={theme}>
+    <Layout className="index-page">
+      <Seo />
       <IndexPageComponent
         posts={posts.map((post) => ({
           id: post.id,

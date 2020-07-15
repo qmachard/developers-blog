@@ -64,6 +64,7 @@ const fetchPosts = async (username, repository) => {
         path: `/posts/${slug}`,
         excerpt: excerpt || '',
         cover: cover || '',
+        published_at: post.closed_at,
         html,
         tags: post.labels.filter((label) => label.name !== 'blog').map((label) => label.name),
       };

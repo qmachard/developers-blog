@@ -6,6 +6,7 @@ import { useReactions } from '../hooks/useReactions';
 
 import Layout from '../components/global/Layout';
 import PostPageComponent from '../components/pages/PostPage';
+import Seo from '../components/global/Seo';
 
 const PostPage = ({
   data: {
@@ -27,7 +28,14 @@ const PostPage = ({
   };
 
   return (
-    <Layout title={post.title} description={post.title} theme={theme}>
+    <Layout title={post.title} description={post.excerpt} theme={theme}>
+      <Seo
+        title={post.title}
+        description={post.excerpt}
+        image={post.cover}
+        author={post.author.name}
+        published_time={post.published_at}
+      />
       <PostPageComponent profile={profile} post={post} author={post.author} reactions={reactions} />
     </Layout>
   );
@@ -52,6 +60,8 @@ PostPage.propTypes = {
         name: PropTypes.string,
         id: PropTypes.string,
       }),
+      excerpt: PropTypes.string,
+      published_at: PropTypes.string,
     }),
   }).isRequired,
 };
@@ -77,6 +87,7 @@ export const pageQuery = graphql`
         avatar
         github
       }
+      published_at(formatString: "YYYY-MM-DD")
     }
   }
 `;
