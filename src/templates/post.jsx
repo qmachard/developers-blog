@@ -7,6 +7,7 @@ import { useReactions } from '../hooks/useReactions';
 import Layout from '../components/global/Layout';
 import PostPageComponent from '../components/pages/PostPage';
 import Seo from '../containers/Seo';
+import Profile from '../containers/Profile';
 
 const PostPage = ({
   data: {
@@ -18,15 +19,6 @@ const PostPage = ({
 }) => {
   const reactions = useReactions(post.id);
 
-  const profile = {
-    username: 'qmachard',
-    name: 'Quentin Machard',
-    image: 'https://avatars2.githubusercontent.com/u/11388211',
-    background: 'https://images.unsplash.com/photo-1550647134-b512b01d62a2?h=1500',
-    profession: 'Front-End Developer',
-    location: 'Rennes, France',
-  };
-
   return (
     <Layout title={post.title} description={post.excerpt} theme={theme}>
       <Seo
@@ -36,7 +28,8 @@ const PostPage = ({
         author={post.author.name}
         published_time={post.published_at}
       />
-      <PostPageComponent profile={profile} post={post} author={post.author} reactions={reactions} />
+      <Profile />
+      <PostPageComponent post={post} author={post.author} reactions={reactions} />
     </Layout>
   );
 };

@@ -3,24 +3,13 @@ import * as PropTypes from 'prop-types';
 
 import Reactions from '../../molecules/Reactions';
 import Footer from '../../organisms/Footer';
-import Profile from '../../molecules/Profile';
 import Post from '../../organisms/Post';
 
 import './PostPage.scss';
 
-const PostPage = ({ profile, post, reactions }) => {
+const PostPage = ({ post, reactions }) => {
   return (
     <div className="post-page">
-      <Profile
-        username={profile.username}
-        name={profile.name}
-        background={profile.background}
-        image={profile.image}
-        location={profile.location}
-        profession={profile.profession}
-        website={profile.website}
-      />
-
       <main className="post-page_inner">
         <Post cover={post.cover} html={post.html} title={post.title} tags={post.tags} />
 
@@ -35,7 +24,6 @@ const PostPage = ({ profile, post, reactions }) => {
 };
 
 PostPage.propTypes = {
-  profile: PropTypes.shape(Profile.propTypes).isRequired,
   post: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,

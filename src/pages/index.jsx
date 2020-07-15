@@ -5,25 +5,23 @@ import { graphql } from 'gatsby';
 import Layout from '../components/global/Layout';
 import IndexPageComponent from '../components/pages/IndexPage';
 import Seo from '../containers/Seo';
+import Profile from '../containers/Profile';
 
 const IndexPage = ({
   data: {
+    site: {
+      siteMetadata: { theme },
+    },
     allPost: { nodes: posts },
     allProject: { nodes: projects },
   },
 }) => {
-  const profile = {
-    username: 'qmachard',
-    name: 'Quentin Machard',
-    image: 'https://avatars2.githubusercontent.com/u/11388211',
-    background: 'https://images.unsplash.com/photo-1550647134-b512b01d62a2?h=1500',
-    profession: 'Front-End Developer',
-    location: 'Rennes, France',
-  };
-
   return (
-    <Layout className="index-page">
+    <Layout theme={theme} className="index-page">
       <Seo />
+
+      <Profile />
+
       <IndexPageComponent
         posts={posts.map((post) => ({
           id: post.id,
@@ -32,7 +30,6 @@ const IndexPage = ({
           image: post.cover,
           link: post.path,
         }))}
-        profile={profile}
         projects={projects.map((project) => ({
           id: project.id,
           title: project.full_name,

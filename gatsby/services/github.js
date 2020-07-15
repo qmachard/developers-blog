@@ -72,5 +72,14 @@ const fetchPosts = async (username, repository) => {
   );
 };
 
+const fetchProfile = async (username) => {
+  return octokit.users
+    .getByUsername({
+      username,
+    })
+    .then((results) => results.data);
+};
+
 exports.fetchPosts = fetchPosts;
 exports.fetchProjects = fetchProjects;
+exports.fetchProfile = fetchProfile;
