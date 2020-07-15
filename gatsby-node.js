@@ -1,5 +1,5 @@
 const path = require(`path`);
-const { fetchPosts, fetchProjects, fetchProfile } = require('./gatsby/services/github');
+const { fetchPosts, fetchProjects, fetchProfile, fetchReadme } = require('./gatsby/services/github');
 
 const createProfile = (profile, createNode, createContentDigest) => {
   createNode({
@@ -19,13 +19,26 @@ const createProfile = (profile, createNode, createContentDigest) => {
   });
 };
 
+const createAbout = (about, createNode, createContentDigest) => {
+  createNode({
+    id: `readme`,
+    html: about,
+    internal: {
+      type: `about`,
+      contentDigest: createContentDigest(about),
+    },
+  });
+};
+
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
   const { GATSBY_GH_ORGANISATION, GATSBY_GH_REPOSITORY } = process.env;
 
   const profile = await fetchProfile(GATSBY_GH_ORGANISATION);
+  const readme = await fetchReadme(GATSBY_GH_ORGANISATION);
   const posts = await fetchPosts(GATSBY_GH_ORGANISATION, GATSBY_GH_REPOSITORY);
   const projects = await fetchProjects(GATSBY_GH_ORGANISATION);
 
+  createAbout(readme, createNode, createContentDigest);
   createProfile(profile, createNode, createContentDigest);
 
   posts.forEach((post) => {

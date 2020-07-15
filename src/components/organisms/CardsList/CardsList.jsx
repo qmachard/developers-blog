@@ -1,20 +1,21 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 
+import Section from '../../atoms/Section';
+
 import './CardsList.scss';
 
 /**
  * CardsList Component
  */
 const CardsList = ({ title, children }) => (
-  <section className="cards-list">
-    <h1 className="cards-list_title title-1">{title}</h1>
+  <Section title={title} className="cards-list">
     <ul className="row">
-      {React.Children.map(children, card => (
+      {React.Children.map(children, (card) => (
         <li className="cards-list_item col-xs-12 col-sm-6">{card}</li>
       ))}
     </ul>
-  </section>
+  </Section>
 );
 
 CardsList.propTypes = {

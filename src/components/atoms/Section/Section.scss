@@ -1,0 +1,19 @@
+.section {
+  position: relative;
+
+  & + .section {
+    margin-top: 100px;
+  }
+}
+
+.section_hash {
+  position: absolute;
+  top: 12px;
+  left: -30px;
+  color: var(--color-secondary);
+  display: none;
+
+  a:hover & {
+    display: block;
+  }
+}

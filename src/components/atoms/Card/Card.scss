@@ -22,6 +22,10 @@
       box-shadow: var(--shadow-hover);
     }
   }
+
+  &--full {
+    display: block;
+  }
 }
 
 .card_title {

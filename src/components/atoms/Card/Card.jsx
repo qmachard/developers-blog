@@ -7,12 +7,13 @@ import './Card.scss';
 /**
  * Card Component
  */
-const Card = ({ padding, link, className, children }) => {
+const Card = ({ padding, link, full, className, children }) => {
   const componentClassNames = classNames(
     'card',
     {
       'card--padding': padding,
       'card--link': link,
+      'card--full': full,
     },
     className,
   );
@@ -23,12 +24,14 @@ const Card = ({ padding, link, className, children }) => {
 Card.propTypes = {
   link: PropTypes.bool,
   padding: PropTypes.bool,
+  full: PropTypes.bool,
   className: PropTypes.string,
 };
 
 Card.defaultProps = {
   padding: true,
   link: false,
+  full: false,
   className: null,
 };
 

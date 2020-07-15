@@ -1,4 +1,5 @@
 const ghPinnedRepos = require('gh-pinned-repos');
+const fetch = require('node-fetch');
 
 const { memoize } = require('../utils/memoize');
 const { transformMarkdownToHTML } = require('../utils/markdown');
@@ -80,6 +81,21 @@ const fetchProfile = async (username) => {
     .then((results) => results.data);
 };
 
+const fetchReadme = async (username) => {
+  try {
+    return fetch(`https://raw.githubusercontent.com/${username}/${username}/master/README.md`)
+      .then((results) => results.text())
+      .then((markdown) => {
+        const { html } = transformMarkdownToHTML(markdown);
+
+        return html;
+      });
+  } catch (e) {
+    return null;
+  }
+};
+
 exports.fetchPosts = fetchPosts;
 exports.fetchProjects = fetchProjects;
 exports.fetchProfile = fetchProfile;
+exports.fetchReadme = fetchReadme;

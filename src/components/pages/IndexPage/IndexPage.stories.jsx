@@ -53,8 +53,12 @@ const projects = [
   },
 ];
 
-stories.add('default', () => <IndexPage profile={profile} posts={posts} projects={projects} />);
+const about = '<p>Lorem ipsum dolor</p>';
 
-stories.add('no post', () => <IndexPage profile={profile} posts={[]} projects={projects} />);
+stories.add('default', () => <IndexPage about={about} profile={profile} posts={posts} projects={projects} />);
 
-stories.add('no project', () => <IndexPage profile={profile} posts={posts} projects={[]} />);
+stories.add('no about', () => <IndexPage projects={projects} posts={posts} />);
+
+stories.add('no post', () => <IndexPage about={about} profile={profile} posts={[]} projects={projects} />);
+
+stories.add('no project', () => <IndexPage about={about} profile={profile} posts={posts} projects={[]} />);

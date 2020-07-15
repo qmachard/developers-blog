@@ -17,3 +17,5 @@ stories.add('no padding', () => (
     <img src="https://images.unsplash.com/photo-1553748024-d1b27fb3f960?w=300" alt="Test 2" />
   </Card>
 ));
+
+stories.add('full width', () => <Card full>This is not a playing card</Card>);

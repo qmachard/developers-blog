@@ -5,13 +5,13 @@ import { graphql } from 'gatsby';
 import Layout from '../components/global/Layout';
 import IndexPageComponent from '../components/pages/IndexPage';
 import Seo from '../containers/Seo';
-import Profile from '../containers/Profile';
 
 const IndexPage = ({
   data: {
     site: {
       siteMetadata: { theme },
     },
+    about: { html: about },
     allPost: { nodes: posts },
     allProject: { nodes: projects },
   },
@@ -20,9 +20,8 @@ const IndexPage = ({
     <Layout theme={theme}>
       <Seo />
 
-      <Profile />
-
       <IndexPageComponent
+        about={about}
         posts={posts.map((post) => ({
           id: post.id,
           description: post.excerpt,
@@ -50,6 +49,9 @@ export const pageQuery = graphql`
       siteMetadata {
         theme
       }
+    }
+    about {
+      html
     }
     allPost {
       nodes {
@@ -82,6 +84,9 @@ IndexPage.propTypes = {
       siteMetadata: PropTypes.shape({
         theme: PropTypes.string,
       }),
+    }),
+    about: PropTypes.shape({
+      html: PropTypes.string,
     }),
     allPost: PropTypes.shape({
       nodes: PropTypes.shape({

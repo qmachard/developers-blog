@@ -2,21 +2,18 @@ import React from 'react';
 import * as PropTypes from 'prop-types';
 
 import Reactions from '../../molecules/Reactions';
-import Footer from '../../organisms/Footer';
 import Post from '../../organisms/Post';
 
 import './PostPage.scss';
 
 const PostPage = ({ post, reactions }) => {
   return (
-    <main className="post-page_inner">
+    <main className="post-page">
       <Post cover={post.cover} html={post.html} title={post.title} tags={post.tags} />
 
       <aside className="post-page_aside">
         <Reactions issue={post.id} reactions={reactions} />
       </aside>
-
-      <Footer />
     </main>
   );
 };
