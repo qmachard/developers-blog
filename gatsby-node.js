@@ -10,7 +10,7 @@ const createProfile = (profile, createNode, createContentDigest) => {
     bio: profile.bio,
     website: profile.blog,
     location: profile.location,
-    twitter: profile.twitter,
+    twitter: profile.twitter_username,
     background: '',
     internal: {
       type: `profile`,

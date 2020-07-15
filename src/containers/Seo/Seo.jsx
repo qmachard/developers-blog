@@ -6,13 +6,17 @@ import { useStaticQuery, graphql } from 'gatsby';
 const Seo = ({ title, description, image, publishedTime, author }) => {
   const {
     site: { siteMetadata },
+    profile: { name, twitter },
   } = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
           title
-          author
         }
+      }
+      profile {
+        name
+        twitter
       }
     }
   `);
@@ -34,9 +38,11 @@ const Seo = ({ title, description, image, publishedTime, author }) => {
       {image && <meta property="og:image" content={image} />}
       {image && <meta property="og:image:type" content="image/jpg" />}
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
-      <meta property="article:author" content={author || siteMetadata.author} />
+      <meta property="article:author" content={author || name} />
       <meta name="twitter:card" content="summary" />
       {title && <meta name="twitter:title" content={title} />}
+      {twitter && <meta name="twitter:site" content={`@${twitter}`} />}
+      {twitter && <meta name="twitter:creator" content={`@${twitter}`} />}
     </Helmet>
   );
 };
