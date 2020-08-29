@@ -26,27 +26,26 @@
 - 🎨 [Personalize](#-personalize)
 - 💫 [Deploy](#-deploy)
 
-
 ## 🚀 Quick Start
 
 1. Fork repository and clone project
 
-    ```bash
-    $ git clone https://github.com/<your-username>/developers-blog.git developers-blog
-    $ cd developers-blog
-    ```
+   ```bash
+   $ git clone https://github.com/<your-username>/blog.git blog
+   $ cd blog
+   ```
 
 1. Install dependencies
 
-    ```bash
-    $ yarn install --no-dev
-    ```
+   ```bash
+   $ yarn install --no-dev
+   ```
 
 1. Start your app
 
-    ```bash
-    $ yarn start
-    ```
+   ```bash
+   $ yarn start
+   ```
 
 ## 🎨 Personalize
 
@@ -56,12 +55,28 @@ TODO
 
 For the moment only GitHub Pages is provided by the project.
 
+### Prepare deployment
+
+1. Generate your secret token :
+
+   Go to https://github.com/settings/tokens/new and enable `repos` scope.
+
+1. Setup secrets on your github repository :
+
+   ```
+   GH_ORGANISATION=<your-username>
+   GH_REPOSITORY=<your-repository>
+   GH_TOKEN=<your-token> # previously generated token
+   SITE_THEME=<theme> # dark or white
+   GATSBY_PATH_PREFIX=/blog
+   ```
+
 ### Automatic Deployment
 
 This blog is automatically deployed to Github Pages for two cases :
 
-* When issues are closed to publish new articles
-* When push on master to upgrade blog
+- When issues are closed to publish new articles
+- When push on master to upgrade blog
 
 This actions are managed by GitHub Actions
 

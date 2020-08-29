@@ -11,10 +11,10 @@ module.exports = {
   siteMetadata: {
     title: `Developer's Blog`,
     description: `Every devs need a simple blog`,
-    author: `@qmachard`,
-    theme: 'dark',
+    author: `@${process.env.GATSBY_GH_ORGANISATION}`,
+    theme: `${process.env.GATSBY_SITE_THEME}`,
   },
-  pathPrefix: '/developers-blog',
+  pathPrefix: `${process.env.GATSBY_PATH_PREFIX}`,
   plugins: [
     `gatsby-plugin-sass`,
     {
