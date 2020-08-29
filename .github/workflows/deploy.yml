@@ -28,8 +28,10 @@ jobs:
           GATSBY_GH_ORGANISATION: ${{ secrets.GH_ORGANISATION }}
           GATSBY_GH_REPOSITORY: ${{ secrets.GH_REPOSITORY }}
           GATSBY_SITE_THEME: ${{ secrets.SITE_THEME }}
+          GATSBY_PATH_PREFIX: ${{ secrets.PATH_PREFIX }}
       - run: ./.github/bin/deploy.sh
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GH_ORGANISATION: ${{ secrets.GH_ORGANISATION }}
           GH_REPOSITORY: ${{ secrets.GH_REPOSITORY }}
+          CUSTOM_DOMAIN: ${{ secrets.CUSTOM_DOMAIN }}

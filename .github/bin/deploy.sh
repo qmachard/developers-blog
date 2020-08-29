@@ -5,4 +5,6 @@ set -eu
 git config user.name "Gatsby Deployer"
 git config user.email "gatsby@bots.github.com"
 
+echo ${CUSTOM_DOMAIN} > ./public/CNAME
+
 yarn gh-pages -d public -r https://x-access-token:${GH_TOKEN}@github.com/${GH_ORGANISATION}/${GH_REPOSITORY}.git
