@@ -14,7 +14,6 @@ module.exports = {
     author: `@${process.env.GATSBY_GH_ORGANISATION}`,
     theme: `${process.env.GATSBY_SITE_THEME}`,
   },
-  pathPrefix: `${process.env.GATSBY_PATH_PREFIX}`,
   plugins: [
     `gatsby-plugin-sass`,
     {

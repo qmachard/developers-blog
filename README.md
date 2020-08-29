@@ -68,7 +68,7 @@ For the moment only GitHub Pages is provided by the project.
    GH_REPOSITORY=<your-repository>
    GH_TOKEN=<your-token> # previously generated token
    SITE_THEME=<theme> # dark or white
-   GATSBY_PATH_PREFIX=/blog
+   PATH_PREFIX=/developers-blog
    ```
 
 ### Automatic Deployment
