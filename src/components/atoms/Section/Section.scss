@@ -1,8 +1,16 @@
+@import '../../../assets/scss/mixins';
+
 .section {
   position: relative;
 
   & + .section {
-    margin-top: 100px;
+    margin-top: 50px;
+  }
+
+  @include desktop() {
+    & + .section {
+      margin-top: 100px;
+    }
   }
 }
 
