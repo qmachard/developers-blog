@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link as LinkIcon, MapPin, Twitter } from 'react-feather';
+import { Link as LinkIcon, MapPin, Twitter, GitHub } from 'react-feather';
 import classNames from 'classnames';
 
 import Tag from '../../atoms/Tag';
@@ -26,31 +26,35 @@ const Profile = ({ image, name, username, background, bio, website, location, tw
 
       {bio && <p className="profile_bio">{bio}</p>}
 
-      {(website || location || twitter) && (
-        <ul className="profile_tags">
-          {website && (
-            <li className="profile_tag">
-              <Tag icon={<LinkIcon className="icon" />}>
-                <a href={website}>{website}</a>
-              </Tag>
-            </li>
-          )}
+      <ul className="profile_tags">
+        {website && (
+          <li className="profile_tag">
+            <Tag icon={<LinkIcon className="icon" />}>
+              <a href={`http://${website}`}>{website}</a>
+            </Tag>
+          </li>
+        )}
 
-          {twitter && (
-            <li className="profile_tag">
-              <Tag icon={<Twitter className="icon" />}>
-                <a href={website}>@{twitter}</a>
-              </Tag>
-            </li>
-          )}
+        <li className="profile_tag">
+          <Tag icon={<GitHub className="icon" />}>
+            <a href={`https://github.com/${username}`}>@{username}</a>
+          </Tag>
+        </li>
 
-          {location && (
-            <li className="profile_tag">
-              <Tag icon={<MapPin className="icon" />}>{location}</Tag>
-            </li>
-          )}
-        </ul>
-      )}
+        {twitter && (
+          <li className="profile_tag">
+            <Tag icon={<Twitter className="icon" />}>
+              <a href={`https://twitter.com/${twitter}`}>@{twitter}</a>
+            </Tag>
+          </li>
+        )}
+
+        {location && (
+          <li className="profile_tag">
+            <Tag icon={<MapPin className="icon" />}>{location}</Tag>
+          </li>
+        )}
+      </ul>
     </aside>
   );
 };
