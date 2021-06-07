@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+    <img alt="Gatsby" src="https://timotheebinet.com/static/fa38ab30a9b8abb4a1ff8c0b7fb86cef/e8950/gatsby.png" width="300" />
   </a>
 </p>
 <h1 align="center">
@@ -10,6 +10,10 @@
 
 <p align="center">
   Every developer needs a simple blog
+</p>
+
+<p align="center">
+  Checkout the demo : [blog.quentinmachard.fr](http://blog.quentinmachard.fr) // [https://github.com/qmachard/blog](qmachard/blog)
 </p>
 
 <p align="center">
