@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  Checkout the demo : <a href="http://blog.quentinmachard.fr">blog.quentinmachard.fr</a> // <a href="https://github.com/qmachard/blog">qmachard/blog</a>
+  Checkout the demo : <a href="http://blog.quentinmachard.fr">blog.quentinmachard.fr</a>
 </p>
 
 <p align="center">
